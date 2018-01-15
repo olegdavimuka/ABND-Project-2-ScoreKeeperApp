@@ -1,0 +1,1341 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/football_background">
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        tools:context="com.example.android.scorekeeper.MainActivity">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="@string/football"
+            android:textColor="@android:color/black"
+            android:textSize="30sp"
+            android:textStyle="italic|bold" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                style="@style/TeamAndTeamScoreTextView"
+                android:text="@string/football_team_1" />
+
+            <TextView
+                style="@style/TeamAndTeamScoreTextView"
+                android:text="@string/football_team_2" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/footballTeam_1_Score"
+                style="@style/TeamAndTeamScoreTextView"
+                android:text="@string/zero"
+                android:textSize="48sp" />
+
+            <TextView
+                android:id="@+id/footballTeam_2_Score"
+                style="@style/TeamAndTeamScoreTextView"
+                android:text="@string/zero"
+                android:textSize="48sp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <Button
+                android:id="@+id/footballTeam_1_GoalButton"
+                style="@style/TeamButton"
+                android:layout_marginStart="8dp"
+                android:nextFocusForward="@id/footballTeam_1_GoalTextView" />
+
+            <TextView
+                android:id="@+id/footballTeam_1_GoalTextView"
+                style="@style/TeamTextView" />
+
+            <ImageView
+                style="@style/TeamImage"
+                android:contentDescription="@string/football_goal_image_description"
+                android:src="@drawable/football_goal" />
+
+            <TextView
+                android:id="@+id/footballTeam_2_GoalTextView"
+                style="@style/TeamTextView" />
+
+            <Button
+                android:id="@+id/footballTeam_2_GoalButton"
+                style="@style/TeamButton"
+                android:layout_marginEnd="8dp"
+                android:nextFocusForward="@id/footballTeam_2_GoalTextView" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <Button
+                android:id="@+id/footballTeam_1_FoulButton"
+                style="@style/TeamButton"
+                android:layout_marginStart="8dp"
+                android:nextFocusForward="@id/footballTeam_1_FoulTextView" />
+
+            <TextView
+                android:id="@+id/footballTeam_1_FoulTextView"
+                style="@style/TeamTextView" />
+
+            <ImageView
+                style="@style/TeamImage"
+                android:contentDescription="@string/football_foul_image_description"
+                android:src="@drawable/football_foul" />
+
+            <TextView
+                android:id="@+id/footballTeam_2_FoulTextView"
+                style="@style/TeamTextView" />
+
+            <Button
+                android:id="@+id/footballTeam_2_FoulButton"
+                style="@style/TeamButton"
+                android:layout_marginEnd="8dp"
+                android:nextFocusForward="@id/footballTeam_2_FoulTextView" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <Button
+                android:id="@+id/footballTeam_1_YellowCardButton"
+                style="@style/TeamButton"
+                android:layout_marginStart="8dp"
+                android:nextFocusForward="@id/footballTeam_1_YellowCardTextView" />
+
+            <TextView
+                android:id="@+id/footballTeam_1_YellowCardTextView"
+                style="@style/TeamTextView" />
+
+            <ImageView
+                style="@style/TeamImage"
+                android:contentDescription="@string/football_yellow_card_image_description"
+                android:src="@drawable/football_yellow_card" />
+
+            <TextView
+                android:id="@+id/footballTeam_2_YellowCardTextView"
+                style="@style/TeamTextView" />
+
+            <Button
+                android:id="@+id/footballTeam_2_YellowCardButton"
+                style="@style/TeamButton"
+                android:layout_marginEnd="8dp"
+                android:nextFocusForward="@id/footballTeam_2_YellowCardTextView" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <Button
+                android:id="@+id/footballTeam_1_RedCardButton"
+                style="@style/TeamButton"
+                android:layout_marginStart="8dp"
+                android:nextFocusForward="@id/footballTeam_1_RedCardTextView" />
+
+            <TextView
+                android:id="@+id/footballTeam_1_RedCardTextView"
+                style="@style/TeamTextView" />
+
+            <ImageView
+                style="@style/TeamImage"
+                android:contentDescription="@string/football_red_card_image_description"
+                android:src="@drawable/football_red_card" />
+
+            <TextView
+                android:id="@+id/footballTeam_2_RedCardTextView"
+                style="@style/TeamTextView" />
+
+            <Button
+                android:id="@+id/footballTeam_2_RedCardButton"
+                style="@style/TeamButton"
+                android:layout_marginEnd="8dp"
+                android:nextFocusForward="@id/footballTeam_2_RedCardTextView" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <Button
+                android:id="@+id/footballTeam_1_OffsideButton"
+                style="@style/TeamButton"
+                android:layout_marginStart="8dp"
+                android:nextFocusForward="@id/footballTeam_1_OffsideTextView" />
+
+            <TextView
+                android:id="@+id/footballTeam_1_OffsideTextView"
+                style="@style/TeamTextView" />
+
+            <ImageView
+                style="@style/TeamImage"
+                android:contentDescription="@string/football_offside_image_description"
+                android:src="@drawable/football_offside" />
+
+            <TextView
+                android:id="@+id/footballTeam_2_OffsideTextView"
+                style="@style/TeamTextView" />
+
+            <Button
+                android:id="@+id/footballTeam_2_OffsideButton"
+                style="@style/TeamButton"
+                android:layout_marginEnd="8dp"
+                android:nextFocusForward="@id/footballTeam_2_OffsideTextView" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <Button
+                android:id="@+id/footballTeam_1_CornerKickButton"
+                style="@style/TeamButton"
+                android:layout_marginStart="8dp"
+                android:nextFocusForward="@id/footballTeam_1_CornerKickTextView" />
+
+            <TextView
+                android:id="@+id/footballTeam_1_CornerKickTextView"
+                style="@style/TeamTextView" />
+
+            <ImageView
+                style="@style/TeamImage"
+                android:contentDescription="@string/football_corner_kick_description"
+                android:src="@drawable/football_corner_kick" />
+
+            <TextView
+                android:id="@+id/footballTeam_2_CornerKickTextView"
+                style="@style/TeamTextView" />
+
+            <Button
+                android:id="@+id/footballTeam_2_CornerKickButton"
+                style="@style/TeamButton"
+                android:layout_marginEnd="8dp"
+                android:nextFocusForward="@id/footballTeam_2_CornerKickTextView" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <Button
+                android:id="@+id/footballTeam_1_SaveButton"
+                style="@style/TeamButton"
+                android:layout_marginStart="8dp"
+                android:nextFocusForward="@id/footballTeam_1_SaveTextView" />
+
+            <TextView
+                android:id="@+id/footballTeam_1_SaveTextView"
+                style="@style/TeamTextView" />
+
+            <ImageView
+                style="@style/TeamImage"
+                android:contentDescription="@string/football_save_image_description"
+                android:src="@drawable/football_save" />
+
+            <TextView
+                android:id="@+id/footballTeam_2_SaveTextView"
+                style="@style/TeamTextView" />
+
+            <Button
+                android:id="@+id/footballTeam_2_SaveButton"
+                style="@style/TeamButton"
+                android:layout_marginEnd="8dp"
+                android:nextFocusForward="@id/footballTeam_2_SaveTextView" />
+
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/footballShowHidePlayersButton"
+            style="@style/ShowPlayersAndResetButton"
+            android:text="@string/hide_players" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:baselineAligned="false"
+            android:orientation="horizontal">
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <Button
+                    android:id="@+id/footballTeam_1_Player_1_Button"
+                    style="@style/PlayerButton"
+                    android:nextFocusForward="@id/footballTeam_1_Player_1_LinearLayout"
+                    android:text="@string/football_team_1_player_1" />
+
+                <LinearLayout
+                    android:id="@+id/footballTeam_1_Player_1_LinearLayout"
+                    style="@style/PlayerLinearLayout">
+
+                    <Button
+                        android:id="@+id/footballTeam_1_Player_1_Record_1_Button"
+                        style="@style/PlayerPlusOneButton"
+                        android:nextFocusForward="@id/footballTeam_1_Player_1_Record_1_TextView" />
+
+                    <LinearLayout
+                        style="@style/RecordLinearLayout"
+                        android:layout_width="0dp">
+
+                        <TextView
+                            style="@style/PlayerRecordTextView"
+                            android:text="@string/football_player_record_1" />
+
+                        <TextView
+                            android:id="@+id/footballTeam_1_Player_1_Record_1_TextView"
+                            style="@style/PlayerTextView" />
+                    </LinearLayout>
+
+                    <Button
+                        android:id="@+id/footballTeam_1_Player_1_Record_2_Button"
+                        style="@style/PlayerPlusOneButton"
+                        android:nextFocusForward="@id/footballTeam_1_Player_1_Record_2_TextView" />
+
+                    <LinearLayout
+                        style="@style/RecordLinearLayout"
+                        android:layout_width="0dp">
+
+                        <TextView
+                            style="@style/PlayerRecordTextView"
+                            android:text="@string/football_player_record_2" />
+
+                        <TextView
+                            android:id="@+id/footballTeam_1_Player_1_Record_2_TextView"
+                            style="@style/PlayerTextView" />
+                    </LinearLayout>
+                </LinearLayout>
+
+                <Button
+                    android:id="@+id/footballTeam_1_Player_2_Button"
+                    style="@style/PlayerButton"
+                    android:nextFocusForward="@id/footballTeam_1_Player_2_LinearLayout"
+                    android:text="@string/football_team_1_player_2" />
+
+                <LinearLayout
+                    android:id="@+id/footballTeam_1_Player_2_LinearLayout"
+                    style="@style/PlayerLinearLayout">
+
+                    <Button
+                        android:id="@+id/footballTeam_1_Player_2_Record_1_Button"
+                        style="@style/PlayerPlusOneButton"
+                        android:nextFocusForward="@id/footballTeam_1_Player_2_Record_1_TextView" />
+
+                    <LinearLayout
+                        style="@style/RecordLinearLayout"
+                        android:layout_width="0dp">
+
+                        <TextView
+                            style="@style/PlayerRecordTextView"
+                            android:text="@string/football_player_record_1" />
+
+                        <TextView
+                            android:id="@+id/footballTeam_1_Player_2_Record_1_TextView"
+                            style="@style/PlayerTextView" />
+
+                    </LinearLayout>
+
+                    <Button
+                        android:id="@+id/footballTeam_1_Player_2_Record_2_Button"
+                        style="@style/PlayerPlusOneButton"
+                        android:nextFocusForward="@id/footballTeam_1_Player_2_Record_2_TextView" />
+
+                    <LinearLayout
+                        style="@style/RecordLinearLayout"
+                        android:layout_width="0dp">
+
+                        <TextView
+                            style="@style/PlayerRecordTextView"
+                            android:text="@string/football_player_record_2" />
+
+                        <TextView
+                            android:id="@+id/footballTeam_1_Player_2_Record_2_TextView"
+                            style="@style/PlayerTextView" />
+                    </LinearLayout>
+                </LinearLayout>
+
+                <Button
+                    android:id="@+id/footballTeam_1_Player_3_Button"
+                    style="@style/PlayerButton"
+                    android:nextFocusForward="@id/footballTeam_1_Player_3_LinearLayout"
+                    android:text="@string/football_team_1_player_3" />
+
+                <LinearLayout
+                    android:id="@+id/footballTeam_1_Player_3_LinearLayout"
+                    style="@style/PlayerLinearLayout">
+
+                    <Button
+                        android:id="@+id/footballTeam_1_Player_3_Record_1_Button"
+                        style="@style/PlayerPlusOneButton"
+                        android:nextFocusForward="@id/footballTeam_1_Player_3_Record_1_TextView" />
+
+                    <LinearLayout
+                        style="@style/RecordLinearLayout"
+                        android:layout_width="0dp">
+
+                        <TextView
+                            style="@style/PlayerRecordTextView"
+                            android:text="@string/football_player_record_1" />
+
+                        <TextView
+                            android:id="@+id/footballTeam_1_Player_3_Record_1_TextView"
+                            style="@style/PlayerTextView" />
+                    </LinearLayout>
+
+                    <Button
+                        android:id="@+id/footballTeam_1_Player_3_Record_2_Button"
+                        style="@style/PlayerPlusOneButton"
+                        android:nextFocusForward="@id/footballTeam_1_Player_3_Record_2_TextView" />
+
+                    <LinearLayout
+                        style="@style/RecordLinearLayout"
+                        android:layout_width="0dp">
+
+                        <TextView
+                            style="@style/PlayerRecordTextView"
+                            android:text="@string/football_player_record_2" />
+
+                        <TextView
+                            android:id="@+id/footballTeam_1_Player_3_Record_2_TextView"
+                            style="@style/PlayerTextView" />
+                    </LinearLayout>
+                </LinearLayout>
+
+                <Button
+                    android:id="@+id/footballTeam_1_Player_4_Button"
+                    style="@style/PlayerButton"
+                    android:nextFocusForward="@id/footballTeam_1_Player_4_LinearLayout"
+                    android:text="@string/football_team_1_player_4" />
+
+                <LinearLayout
+                    android:id="@+id/footballTeam_1_Player_4_LinearLayout"
+                    style="@style/PlayerLinearLayout">
+
+                    <Button
+                        android:id="@+id/footballTeam_1_Player_4_Record_1_Button"
+                        style="@style/PlayerPlusOneButton"
+                        android:nextFocusForward="@id/footballTeam_1_Player_4_Record_1_TextView" />
+
+                    <LinearLayout
+                        style="@style/RecordLinearLayout"
+                        android:layout_width="0dp">
+
+                        <TextView
+                            style="@style/PlayerRecordTextView"
+                            android:text="@string/football_player_record_1" />
+
+                        <TextView
+                            android:id="@+id/footballTeam_1_Player_4_Record_1_TextView"
+                            style="@style/PlayerTextView" />
+                    </LinearLayout>
+
+                    <Button
+                        android:id="@+id/footballTeam_1_Player_4_Record_2_Button"
+                        style="@style/PlayerPlusOneButton"
+                        android:nextFocusForward="@id/footballTeam_1_Player_4_Record_2_TextView" />
+
+                    <LinearLayout
+                        style="@style/RecordLinearLayout"
+                        android:layout_width="0dp">
+
+                        <TextView
+                            style="@style/PlayerRecordTextView"
+                            android:text="@string/football_player_record_2" />
+
+                        <TextView
+                            android:id="@+id/footballTeam_1_Player_4_Record_2_TextView"
+                            style="@style/PlayerTextView" />
+                    </LinearLayout>
+                </LinearLayout>
+
+                <Button
+                    android:id="@+id/footballTeam_1_Player_5_Button"
+                    style="@style/PlayerButton"
+                    android:nextFocusForward="@id/footballTeam_1_Player_5_LinearLayout"
+                    android:text="@string/football_team_1_player_5" />
+
+                <LinearLayout
+                    android:id="@+id/footballTeam_1_Player_5_LinearLayout"
+                    style="@style/PlayerLinearLayout">
+
+                    <Button
+                        android:id="@+id/footballTeam_1_Player_5_Record_1_Button"
+                        style="@style/PlayerPlusOneButton"
+                        android:nextFocusForward="@id/footballTeam_1_Player_5_Record_1_TextView" />
+
+                    <LinearLayout
+                        style="@style/RecordLinearLayout"
+                        android:layout_width="0dp">
+
+                        <TextView
+                            style="@style/PlayerRecordTextView"
+                            android:text="@string/football_player_record_1" />
+
+                        <TextView
+                            android:id="@+id/footballTeam_1_Player_5_Record_1_TextView"
+                            style="@style/PlayerTextView" />
+                    </LinearLayout>
+
+                    <Button
+                        android:id="@+id/footballTeam_1_Player_5_Record_2_Button"
+                        style="@style/PlayerPlusOneButton"
+                        android:nextFocusForward="@id/footballTeam_1_Player_5_Record_2_TextView" />
+
+                    <LinearLayout
+                        style="@style/RecordLinearLayout"
+                        android:layout_width="0dp">
+
+                        <TextView
+                            style="@style/PlayerRecordTextView"
+                            android:text="@string/football_player_record_2" />
+
+                        <TextView
+                            android:id="@+id/footballTeam_1_Player_5_Record_2_TextView"
+                            style="@style/PlayerTextView" />
+                    </LinearLayout>
+                </LinearLayout>
+
+                <Button
+                    android:id="@+id/footballTeam_1_Player_6_Button"
+                    style="@style/PlayerButton"
+                    android:nextFocusForward="@id/footballTeam_1_Player_6_LinearLayout"
+                    android:text="@string/football_team_1_player_6" />
+
+                <LinearLayout
+                    android:id="@+id/footballTeam_1_Player_6_LinearLayout"
+                    style="@style/PlayerLinearLayout">
+
+                    <Button
+                        android:id="@+id/footballTeam_1_Player_6_Record_1_Button"
+                        style="@style/PlayerPlusOneButton"
+                        android:nextFocusForward="@id/footballTeam_1_Player_6_Record_1_TextView" />
+
+                    <LinearLayout
+                        style="@style/RecordLinearLayout"
+                        android:layout_width="0dp">
+
+                        <TextView
+                            style="@style/PlayerRecordTextView"
+                            android:text="@string/football_player_record_1" />
+
+                        <TextView
+                            android:id="@+id/footballTeam_1_Player_6_Record_1_TextView"
+                            style="@style/PlayerTextView" />
+                    </LinearLayout>
+
+                    <Button
+                        android:id="@+id/footballTeam_1_Player_6_Record_2_Button"
+                        style="@style/PlayerPlusOneButton"
+                        android:nextFocusForward="@id/footballTeam_1_Player_6_Record_2_TextView" />
+
+                    <LinearLayout
+                        style="@style/RecordLinearLayout"
+                        android:layout_width="0dp">
+
+                        <TextView
+                            style="@style/PlayerRecordTextView"
+                            android:text="@string/football_player_record_2" />
+
+                        <TextView
+                            android:id="@+id/footballTeam_1_Player_6_Record_2_TextView"
+                            style="@style/PlayerTextView" />
+                    </LinearLayout>
+                </LinearLayout>
+
+                <Button
+                    android:id="@+id/footballTeam_1_Player_7_Button"
+                    style="@style/PlayerButton"
+                    android:nextFocusForward="@id/footballTeam_1_Player_7_LinearLayout"
+                    android:text="@string/football_team_1_player_7" />
+
+                <LinearLayout
+                    android:id="@+id/footballTeam_1_Player_7_LinearLayout"
+                    style="@style/PlayerLinearLayout">
+
+                    <Button
+                        android:id="@+id/footballTeam_1_Player_7_Record_1_Button"
+                        style="@style/PlayerPlusOneButton"
+                        android:nextFocusForward="@id/footballTeam_1_Player_7_Record_1_TextView" />
+
+                    <LinearLayout
+                        style="@style/RecordLinearLayout"
+                        android:layout_width="0dp">
+
+                        <TextView
+                            style="@style/PlayerRecordTextView"
+                            android:text="@string/football_player_record_1" />
+
+                        <TextView
+                            android:id="@+id/footballTeam_1_Player_7_Record_1_TextView"
+                            style="@style/PlayerTextView" />
+                    </LinearLayout>
+
+                    <Button
+                        android:id="@+id/footballTeam_1_Player_7_Record_2_Button"
+                        style="@style/PlayerPlusOneButton"
+                        android:nextFocusForward="@id/footballTeam_1_Player_7_Record_2_TextView" />
+
+                    <LinearLayout
+                        style="@style/RecordLinearLayout"
+                        android:layout_width="0dp">
+
+                        <TextView
+                            style="@style/PlayerRecordTextView"
+                            android:text="@string/football_player_record_2" />
+
+                        <TextView
+                            android:id="@+id/footballTeam_1_Player_7_Record_2_TextView"
+                            style="@style/PlayerTextView" />
+                    </LinearLayout>
+                </LinearLayout>
+
+                <Button
+                    android:id="@+id/footballTeam_1_Player_8_Button"
+                    style="@style/PlayerButton"
+                    android:nextFocusForward="@id/footballTeam_1_Player_8_LinearLayout"
+                    android:text="@string/football_team_1_player_8" />
+
+                <LinearLayout
+                    android:id="@+id/footballTeam_1_Player_8_LinearLayout"
+                    style="@style/PlayerLinearLayout">
+
+                    <Button
+                        android:id="@+id/footballTeam_1_Player_8_Record_1_Button"
+                        style="@style/PlayerPlusOneButton"
+                        android:nextFocusForward="@id/footballTeam_1_Player_8_Record_1_TextView" />
+
+                    <LinearLayout
+                        style="@style/RecordLinearLayout"
+                        android:layout_width="0dp">
+
+                        <TextView
+                            style="@style/PlayerRecordTextView"
+                            android:text="@string/football_player_record_1" />
+
+                        <TextView
+                            android:id="@+id/footballTeam_1_Player_8_Record_1_TextView"
+                            style="@style/PlayerTextView" />
+                    </LinearLayout>
+
+                    <Button
+                        android:id="@+id/footballTeam_1_Player_8_Record_2_Button"
+                        style="@style/PlayerPlusOneButton"
+                        android:nextFocusForward="@id/footballTeam_1_Player_8_Record_2_TextView" />
+
+                    <LinearLayout
+                        style="@style/RecordLinearLayout"
+                        android:layout_width="0dp">
+
+                        <TextView
+                            style="@style/PlayerRecordTextView"
+                            android:text="@string/football_player_record_2" />
+
+                        <TextView
+                            android:id="@+id/footballTeam_1_Player_8_Record_2_TextView"
+                            style="@style/PlayerTextView" />
+                    </LinearLayout>
+                </LinearLayout>
+
+                <Button
+                    android:id="@+id/footballTeam_1_Player_9_Button"
+                    style="@style/PlayerButton"
+                    android:nextFocusForward="@id/footballTeam_1_Player_9_LinearLayout"
+                    android:text="@string/football_team_1_player_9" />
+
+                <LinearLayout
+                    android:id="@+id/footballTeam_1_Player_9_LinearLayout"
+                    style="@style/PlayerLinearLayout">
+
+                    <Button
+                        android:id="@+id/footballTeam_1_Player_9_Record_1_Button"
+                        style="@style/PlayerPlusOneButton"
+                        android:nextFocusForward="@id/footballTeam_1_Player_9_Record_1_TextView" />
+
+                    <LinearLayout
+                        style="@style/RecordLinearLayout"
+                        android:layout_width="0dp">
+
+                        <TextView
+                            style="@style/PlayerRecordTextView"
+                            android:text="@string/football_player_record_1" />
+
+                        <TextView
+                            android:id="@+id/footballTeam_1_Player_9_Record_1_TextView"
+                            style="@style/PlayerTextView" />
+                    </LinearLayout>
+
+                    <Button
+                        android:id="@+id/footballTeam_1_Player_9_Record_2_Button"
+                        style="@style/PlayerPlusOneButton"
+                        android:nextFocusForward="@id/footballTeam_1_Player_9_Record_2_TextView" />
+
+                    <LinearLayout
+                        style="@style/RecordLinearLayout"
+                        android:layout_width="0dp">
+
+                        <TextView
+                            style="@style/PlayerRecordTextView"
+                            android:text="@string/football_player_record_2" />
+
+                        <TextView
+                            android:id="@+id/footballTeam_1_Player_9_Record_2_TextView"
+                            style="@style/PlayerTextView" />
+                    </LinearLayout>
+                </LinearLayout>
+
+                <Button
+                    android:id="@+id/footballTeam_1_Player_10_Button"
+                    style="@style/PlayerButton"
+                    android:nextFocusForward="@id/footballTeam_1_Player_10_LinearLayout"
+                    android:text="@string/football_team_1_player_10" />
+
+                <LinearLayout
+                    android:id="@+id/footballTeam_1_Player_10_LinearLayout"
+                    style="@style/PlayerLinearLayout">
+
+                    <Button
+                        android:id="@+id/footballTeam_1_Player_10_Record_1_Button"
+                        style="@style/PlayerPlusOneButton"
+                        android:nextFocusForward="@id/footballTeam_1_Player_10_Record_1_TextView" />
+
+                    <LinearLayout
+                        style="@style/RecordLinearLayout"
+                        android:layout_width="0dp">
+
+                        <TextView
+                            style="@style/PlayerRecordTextView"
+                            android:text="@string/football_player_record_1" />
+
+                        <TextView
+                            android:id="@+id/footballTeam_1_Player_10_Record_1_TextView"
+                            style="@style/PlayerTextView" />
+                    </LinearLayout>
+
+                    <Button
+                        android:id="@+id/footballTeam_1_Player_10_Record_2_Button"
+                        style="@style/PlayerPlusOneButton"
+                        android:nextFocusForward="@id/footballTeam_1_Player_10_Record_2_TextView" />
+
+                    <LinearLayout
+                        style="@style/RecordLinearLayout"
+                        android:layout_width="0dp">
+
+                        <TextView
+                            style="@style/PlayerRecordTextView"
+                            android:text="@string/football_player_record_2" />
+
+                        <TextView
+                            android:id="@+id/footballTeam_1_Player_10_Record_2_TextView"
+                            style="@style/PlayerTextView" />
+                    </LinearLayout>
+                </LinearLayout>
+
+                <Button
+                    android:id="@+id/footballTeam_1_Player_11_Button"
+                    style="@style/PlayerButton"
+                    android:nextFocusForward="@id/footballTeam_1_Player_11_LinearLayout"
+                    android:text="@string/football_team_1_player_11" />
+
+                <LinearLayout
+                    android:id="@+id/footballTeam_1_Player_11_LinearLayout"
+                    style="@style/PlayerLinearLayout">
+
+                    <Button
+                        android:id="@+id/footballTeam_1_Player_11_Record_1_Button"
+                        style="@style/PlayerPlusOneButton"
+                        android:nextFocusForward="@id/footballTeam_1_Player_11_Record_1_TextView" />
+
+                    <LinearLayout
+                        style="@style/RecordLinearLayout"
+                        android:layout_width="0dp">
+
+                        <TextView
+                            style="@style/PlayerRecordTextView"
+                            android:text="@string/football_player_record_1" />
+
+                        <TextView
+                            android:id="@+id/footballTeam_1_Player_11_Record_1_TextView"
+                            style="@style/PlayerTextView" />
+                    </LinearLayout>
+
+                    <Button
+                        android:id="@+id/footballTeam_1_Player_11_Record_2_Button"
+                        style="@style/PlayerPlusOneButton"
+                        android:nextFocusForward="@id/footballTeam_1_Player_11_Record_2_TextView" />
+
+                    <LinearLayout
+                        style="@style/RecordLinearLayout"
+                        android:layout_width="0dp">
+
+                        <TextView
+                            style="@style/PlayerRecordTextView"
+                            android:text="@string/football_player_record_2" />
+
+                        <TextView
+                            android:id="@+id/footballTeam_1_Player_11_Record_2_TextView"
+                            style="@style/PlayerTextView" />
+                    </LinearLayout>
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <Button
+                    android:id="@+id/footballTeam_2_Player_1_Button"
+                    style="@style/PlayerButton"
+                    android:nextFocusForward="@id/footballTeam_2_Player_1_LinearLayout"
+                    android:text="@string/football_team_2_player_1" />
+
+                <LinearLayout
+                    android:id="@+id/footballTeam_2_Player_1_LinearLayout"
+                    style="@style/PlayerLinearLayout">
+
+                    <Button
+                        android:id="@+id/footballTeam_2_Player_1_Record_1_Button"
+                        style="@style/PlayerPlusOneButton"
+                        android:nextFocusForward="@id/footballTeam_2_Player_1_Record_1_TextView" />
+
+                    <LinearLayout
+                        style="@style/RecordLinearLayout"
+                        android:layout_width="0dp">
+
+                        <TextView
+                            style="@style/PlayerRecordTextView"
+                            android:text="@string/football_player_record_1" />
+
+                        <TextView
+                            android:id="@+id/footballTeam_2_Player_1_Record_1_TextView"
+                            style="@style/PlayerTextView" />
+                    </LinearLayout>
+
+                    <Button
+                        android:id="@+id/footballTeam_2_Player_1_Record_2_Button"
+                        style="@style/PlayerPlusOneButton"
+                        android:nextFocusForward="@id/footballTeam_2_Player_1_Record_2_TextView" />
+
+                    <LinearLayout
+                        style="@style/RecordLinearLayout"
+                        android:layout_width="0dp">
+
+                        <TextView
+                            style="@style/PlayerRecordTextView"
+                            android:text="@string/football_player_record_2" />
+
+                        <TextView
+                            android:id="@+id/footballTeam_2_Player_1_Record_2_TextView"
+                            style="@style/PlayerTextView" />
+                    </LinearLayout>
+                </LinearLayout>
+
+
+                <Button
+                    android:id="@+id/footballTeam_2_Player_2_Button"
+                    style="@style/PlayerButton"
+                    android:nextFocusForward="@id/footballTeam_2_Player_2_LinearLayout"
+                    android:text="@string/football_team_2_player_2" />
+
+                <LinearLayout
+                    android:id="@+id/footballTeam_2_Player_2_LinearLayout"
+                    style="@style/PlayerLinearLayout">
+
+                    <Button
+                        android:id="@+id/footballTeam_2_Player_2_Record_1_Button"
+                        style="@style/PlayerPlusOneButton"
+                        android:nextFocusForward="@id/footballTeam_2_Player_2_Record_1_TextView" />
+
+                    <LinearLayout
+                        style="@style/RecordLinearLayout"
+                        android:layout_width="0dp">
+
+                        <TextView
+                            style="@style/PlayerRecordTextView"
+                            android:text="@string/football_player_record_1" />
+
+                        <TextView
+                            android:id="@+id/footballTeam_2_Player_2_Record_1_TextView"
+                            style="@style/PlayerTextView" />
+                    </LinearLayout>
+
+                    <Button
+                        android:id="@+id/footballTeam_2_Player_2_Record_2_Button"
+                        style="@style/PlayerPlusOneButton"
+                        android:nextFocusForward="@id/footballTeam_2_Player_2_Record_2_TextView" />
+
+                    <LinearLayout
+                        style="@style/RecordLinearLayout"
+                        android:layout_width="0dp">
+
+                        <TextView
+                            style="@style/PlayerRecordTextView"
+                            android:text="@string/football_player_record_2" />
+
+                        <TextView
+                            android:id="@+id/footballTeam_2_Player_2_Record_2_TextView"
+                            style="@style/PlayerTextView" />
+                    </LinearLayout>
+                </LinearLayout>
+
+                <Button
+                    android:id="@+id/footballTeam_2_Player_3_Button"
+                    style="@style/PlayerButton"
+                    android:nextFocusForward="@id/footballTeam_2_Player_3_LinearLayout"
+                    android:text="@string/football_team_2_player_3" />
+
+                <LinearLayout
+                    android:id="@+id/footballTeam_2_Player_3_LinearLayout"
+                    style="@style/PlayerLinearLayout">
+
+                    <Button
+                        android:id="@+id/footballTeam_2_Player_3_Record_1_Button"
+                        style="@style/PlayerPlusOneButton"
+                        android:nextFocusForward="@id/footballTeam_2_Player_3_Record_1_TextView" />
+
+                    <LinearLayout
+                        style="@style/RecordLinearLayout"
+                        android:layout_width="0dp">
+
+                        <TextView
+                            style="@style/PlayerRecordTextView"
+                            android:text="@string/football_player_record_1" />
+
+                        <TextView
+                            android:id="@+id/footballTeam_2_Player_3_Record_1_TextView"
+                            style="@style/PlayerTextView" />
+                    </LinearLayout>
+
+                    <Button
+                        android:id="@+id/footballTeam_2_Player_3_Record_2_Button"
+                        style="@style/PlayerPlusOneButton"
+                        android:nextFocusForward="@id/footballTeam_2_Player_3_Record_2_TextView" />
+
+                    <LinearLayout
+                        style="@style/RecordLinearLayout"
+                        android:layout_width="0dp">
+
+                        <TextView
+                            style="@style/PlayerRecordTextView"
+                            android:text="@string/football_player_record_2" />
+
+                        <TextView
+                            android:id="@+id/footballTeam_2_Player_3_Record_2_TextView"
+                            style="@style/PlayerTextView" />
+                    </LinearLayout>
+                </LinearLayout>
+
+                <Button
+                    android:id="@+id/footballTeam_2_Player_4_Button"
+                    style="@style/PlayerButton"
+                    android:nextFocusForward="@id/footballTeam_2_Player_4_LinearLayout"
+                    android:text="@string/football_team_2_player_4" />
+
+                <LinearLayout
+                    android:id="@+id/footballTeam_2_Player_4_LinearLayout"
+                    style="@style/PlayerLinearLayout">
+
+                    <Button
+                        android:id="@+id/footballTeam_2_Player_4_Record_1_Button"
+                        style="@style/PlayerPlusOneButton"
+                        android:nextFocusForward="@id/footballTeam_2_Player_4_Record_1_TextView" />
+
+                    <LinearLayout
+                        style="@style/RecordLinearLayout"
+                        android:layout_width="0dp">
+
+                        <TextView
+                            style="@style/PlayerRecordTextView"
+                            android:text="@string/football_player_record_1" />
+
+                        <TextView
+                            android:id="@+id/footballTeam_2_Player_4_Record_1_TextView"
+                            style="@style/PlayerTextView" />
+                    </LinearLayout>
+
+                    <Button
+                        android:id="@+id/footballTeam_2_Player_4_Record_2_Button"
+                        style="@style/PlayerPlusOneButton"
+                        android:nextFocusForward="@id/footballTeam_2_Player_4_Record_2_TextView" />
+
+                    <LinearLayout
+                        style="@style/RecordLinearLayout"
+                        android:layout_width="0dp">
+
+                        <TextView
+                            style="@style/PlayerRecordTextView"
+                            android:text="@string/football_player_record_2" />
+
+                        <TextView
+                            android:id="@+id/footballTeam_2_Player_4_Record_2_TextView"
+                            style="@style/PlayerTextView" />
+                    </LinearLayout>
+                </LinearLayout>
+
+                <Button
+                    android:id="@+id/footballTeam_2_Player_5_Button"
+                    style="@style/PlayerButton"
+                    android:nextFocusForward="@id/footballTeam_2_Player_5_LinearLayout"
+                    android:text="@string/football_team_2_player_5" />
+
+                <LinearLayout
+                    android:id="@+id/footballTeam_2_Player_5_LinearLayout"
+                    style="@style/PlayerLinearLayout">
+
+                    <Button
+                        android:id="@+id/footballTeam_2_Player_5_Record_1_Button"
+                        style="@style/PlayerPlusOneButton"
+                        android:nextFocusForward="@id/footballTeam_2_Player_5_Record_1_TextView" />
+
+                    <LinearLayout
+                        style="@style/RecordLinearLayout"
+                        android:layout_width="0dp">
+
+                        <TextView
+                            style="@style/PlayerRecordTextView"
+                            android:text="@string/football_player_record_1" />
+
+                        <TextView
+                            android:id="@+id/footballTeam_2_Player_5_Record_1_TextView"
+                            style="@style/PlayerTextView" />
+                    </LinearLayout>
+
+                    <Button
+                        android:id="@+id/footballTeam_2_Player_5_Record_2_Button"
+                        style="@style/PlayerPlusOneButton"
+                        android:nextFocusForward="@id/footballTeam_2_Player_5_Record_2_TextView" />
+
+                    <LinearLayout
+                        style="@style/RecordLinearLayout"
+                        android:layout_width="0dp">
+
+                        <TextView
+                            style="@style/PlayerRecordTextView"
+                            android:text="@string/football_player_record_2" />
+
+                        <TextView
+                            android:id="@+id/footballTeam_2_Player_5_Record_2_TextView"
+                            style="@style/PlayerTextView" />
+                    </LinearLayout>
+                </LinearLayout>
+
+                <Button
+                    android:id="@+id/footballTeam_2_Player_6_Button"
+                    style="@style/PlayerButton"
+                    android:nextFocusForward="@id/footballTeam_2_Player_6_LinearLayout"
+                    android:text="@string/football_team_2_player_6" />
+
+                <LinearLayout
+                    android:id="@+id/footballTeam_2_Player_6_LinearLayout"
+                    style="@style/PlayerLinearLayout">
+
+                    <Button
+                        android:id="@+id/footballTeam_2_Player_6_Record_1_Button"
+                        style="@style/PlayerPlusOneButton"
+                        android:nextFocusForward="@id/footballTeam_2_Player_6_Record_1_TextView" />
+
+                    <LinearLayout
+                        style="@style/RecordLinearLayout"
+                        android:layout_width="0dp">
+
+                        <TextView
+                            style="@style/PlayerRecordTextView"
+                            android:text="@string/football_player_record_1" />
+
+                        <TextView
+                            android:id="@+id/footballTeam_2_Player_6_Record_1_TextView"
+                            style="@style/PlayerTextView" />
+                    </LinearLayout>
+
+                    <Button
+                        android:id="@+id/footballTeam_2_Player_6_Record_2_Button"
+                        style="@style/PlayerPlusOneButton"
+                        android:nextFocusForward="@id/footballTeam_2_Player_6_Record_2_TextView" />
+
+                    <LinearLayout
+                        style="@style/RecordLinearLayout"
+                        android:layout_width="0dp">
+
+                        <TextView
+                            style="@style/PlayerRecordTextView"
+                            android:text="@string/football_player_record_2" />
+
+                        <TextView
+                            android:id="@+id/footballTeam_2_Player_6_Record_2_TextView"
+                            style="@style/PlayerTextView" />
+                    </LinearLayout>
+                </LinearLayout>
+
+                <Button
+                    android:id="@+id/footballTeam_2_Player_7_Button"
+                    style="@style/PlayerButton"
+                    android:nextFocusForward="@id/footballTeam_2_Player_7_LinearLayout"
+                    android:text="@string/football_team_2_player_7" />
+
+                <LinearLayout
+                    android:id="@+id/footballTeam_2_Player_7_LinearLayout"
+                    style="@style/PlayerLinearLayout">
+
+                    <Button
+                        android:id="@+id/footballTeam_2_Player_7_Record_1_Button"
+                        style="@style/PlayerPlusOneButton"
+                        android:nextFocusForward="@id/footballTeam_2_Player_7_Record_1_TextView" />
+
+                    <LinearLayout
+                        style="@style/RecordLinearLayout"
+                        android:layout_width="0dp">
+
+                        <TextView
+                            style="@style/PlayerRecordTextView"
+                            android:text="@string/football_player_record_1" />
+
+                        <TextView
+                            android:id="@+id/footballTeam_2_Player_7_Record_1_TextView"
+                            style="@style/PlayerTextView" />
+                    </LinearLayout>
+
+                    <Button
+                        android:id="@+id/footballTeam_2_Player_7_Record_2_Button"
+                        style="@style/PlayerPlusOneButton"
+                        android:nextFocusForward="@id/footballTeam_2_Player_7_Record_2_TextView" />
+
+                    <LinearLayout
+                        style="@style/RecordLinearLayout"
+                        android:layout_width="0dp">
+
+                        <TextView
+                            style="@style/PlayerRecordTextView"
+                            android:text="@string/football_player_record_2" />
+
+                        <TextView
+                            android:id="@+id/footballTeam_2_Player_7_Record_2_TextView"
+                            style="@style/PlayerTextView" />
+                    </LinearLayout>
+                </LinearLayout>
+
+                <Button
+                    android:id="@+id/footballTeam_2_Player_8_Button"
+                    style="@style/PlayerButton"
+                    android:nextFocusForward="@id/footballTeam_2_Player_8_LinearLayout"
+                    android:text="@string/football_team_2_player_8" />
+
+                <LinearLayout
+                    android:id="@+id/footballTeam_2_Player_8_LinearLayout"
+                    style="@style/PlayerLinearLayout">
+
+                    <Button
+                        android:id="@+id/footballTeam_2_Player_8_Record_1_Button"
+                        style="@style/PlayerPlusOneButton"
+                        android:nextFocusForward="@id/footballTeam_2_Player_8_Record_1_TextView" />
+
+                    <LinearLayout
+                        style="@style/RecordLinearLayout"
+                        android:layout_width="0dp">
+
+                        <TextView
+                            style="@style/PlayerRecordTextView"
+                            android:text="@string/football_player_record_1" />
+
+                        <TextView
+                            android:id="@+id/footballTeam_2_Player_8_Record_1_TextView"
+                            style="@style/PlayerTextView" />
+                    </LinearLayout>
+
+                    <Button
+                        android:id="@+id/footballTeam_2_Player_8_Record_2_Button"
+                        style="@style/PlayerPlusOneButton"
+                        android:nextFocusForward="@id/footballTeam_2_Player_8_Record_2_TextView" />
+
+                    <LinearLayout
+                        style="@style/RecordLinearLayout"
+                        android:layout_width="0dp">
+
+                        <TextView
+                            style="@style/PlayerRecordTextView"
+                            android:text="@string/football_player_record_2" />
+
+                        <TextView
+                            android:id="@+id/footballTeam_2_Player_8_Record_2_TextView"
+                            style="@style/PlayerTextView" />
+                    </LinearLayout>
+                </LinearLayout>
+
+                <Button
+                    android:id="@+id/footballTeam_2_Player_9_Button"
+                    style="@style/PlayerButton"
+                    android:nextFocusForward="@id/footballTeam_2_Player_9_LinearLayout"
+                    android:text="@string/football_team_2_player_9" />
+
+                <LinearLayout
+                    android:id="@+id/footballTeam_2_Player_9_LinearLayout"
+                    style="@style/PlayerLinearLayout">
+
+                    <Button
+                        android:id="@+id/footballTeam_2_Player_9_Record_1_Button"
+                        style="@style/PlayerPlusOneButton"
+                        android:nextFocusForward="@id/footballTeam_2_Player_9_Record_1_TextView" />
+
+                    <LinearLayout
+                        style="@style/RecordLinearLayout"
+                        android:layout_width="0dp">
+
+                        <TextView
+                            style="@style/PlayerRecordTextView"
+                            android:text="@string/football_player_record_1" />
+
+                        <TextView
+                            android:id="@+id/footballTeam_2_Player_9_Record_1_TextView"
+                            style="@style/PlayerTextView" />
+                    </LinearLayout>
+
+                    <Button
+                        android:id="@+id/footballTeam_2_Player_9_Record_2_Button"
+                        style="@style/PlayerPlusOneButton"
+                        android:nextFocusForward="@id/footballTeam_2_Player_9_Record_2_TextView" />
+
+                    <LinearLayout
+                        style="@style/RecordLinearLayout"
+                        android:layout_width="0dp">
+
+                        <TextView
+                            style="@style/PlayerRecordTextView"
+                            android:text="@string/football_player_record_2" />
+
+                        <TextView
+                            android:id="@+id/footballTeam_2_Player_9_Record_2_TextView"
+                            style="@style/PlayerTextView" />
+                    </LinearLayout>
+                </LinearLayout>
+
+                <Button
+                    android:id="@+id/footballTeam_2_Player_10_Button"
+                    style="@style/PlayerButton"
+                    android:nextFocusForward="@id/footballTeam_2_Player_10_LinearLayout"
+                    android:text="@string/football_team_2_player_10" />
+
+                <LinearLayout
+                    android:id="@+id/footballTeam_2_Player_10_LinearLayout"
+                    style="@style/PlayerLinearLayout">
+
+                    <Button
+                        android:id="@+id/footballTeam_2_Player_10_Record_1_Button"
+                        style="@style/PlayerPlusOneButton"
+                        android:nextFocusForward="@id/footballTeam_2_Player_10_Record_1_TextView" />
+
+                    <LinearLayout
+                        style="@style/RecordLinearLayout"
+                        android:layout_width="0dp">
+
+                        <TextView
+                            style="@style/PlayerRecordTextView"
+                            android:text="@string/football_player_record_1" />
+
+                        <TextView
+                            android:id="@+id/footballTeam_2_Player_10_Record_1_TextView"
+                            style="@style/PlayerTextView" />
+                    </LinearLayout>
+
+                    <Button
+                        android:id="@+id/footballTeam_2_Player_10_Record_2_Button"
+                        style="@style/PlayerPlusOneButton"
+                        android:nextFocusForward="@id/footballTeam_2_Player_10_Record_2_TextView" />
+
+                    <LinearLayout
+                        style="@style/RecordLinearLayout"
+                        android:layout_width="0dp">
+
+                        <TextView
+                            style="@style/PlayerRecordTextView"
+                            android:text="@string/football_player_record_2" />
+
+                        <TextView
+                            android:id="@+id/footballTeam_2_Player_10_Record_2_TextView"
+                            style="@style/PlayerTextView" />
+                    </LinearLayout>
+                </LinearLayout>
+
+                <Button
+                    android:id="@+id/footballTeam_2_Player_11_Button"
+                    style="@style/PlayerButton"
+                    android:nextFocusForward="@id/footballTeam_2_Player_11_LinearLayout"
+                    android:text="@string/football_team_2_player_11" />
+
+                <LinearLayout
+                    android:id="@+id/footballTeam_2_Player_11_LinearLayout"
+                    style="@style/PlayerLinearLayout">
+
+                    <Button
+                        android:id="@+id/footballTeam_2_Player_11_Record_1_Button"
+                        style="@style/PlayerPlusOneButton"
+                        android:nextFocusForward="@id/footballTeam_2_Player_11_Record_1_TextView" />
+
+                    <LinearLayout
+                        style="@style/RecordLinearLayout"
+                        android:layout_width="0dp">
+
+                        <TextView
+                            style="@style/PlayerRecordTextView"
+                            android:text="@string/football_player_record_1" />
+
+                        <TextView
+                            android:id="@+id/footballTeam_2_Player_11_Record_1_TextView"
+                            style="@style/PlayerTextView" />
+                    </LinearLayout>
+
+                    <Button
+                        android:id="@+id/footballTeam_2_Player_11_Record_2_Button"
+                        style="@style/PlayerPlusOneButton"
+                        android:nextFocusForward="@id/footballTeam_2_Player_11_Record_2_TextView" />
+
+                    <LinearLayout
+                        style="@style/RecordLinearLayout"
+                        android:layout_width="0dp">
+
+                        <TextView
+                            style="@style/PlayerRecordTextView"
+                            android:text="@string/football_player_record_2" />
+
+                        <TextView
+                            android:id="@+id/footballTeam_2_Player_11_Record_2_TextView"
+                            style="@style/PlayerTextView" />
+                    </LinearLayout>
+                </LinearLayout>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/footballResetButton"
+            style="@style/ShowPlayersAndResetButton"
+            android:text="@string/reset" />
+    </LinearLayout>
+</ScrollView>

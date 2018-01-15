@@ -3,4 +3,20 @@
     <color name="colorPrimary">#3F51B5</color>
     <color name="colorPrimaryDark">#303F9F</color>
     <color name="colorAccent">#FF4081</color>
+
+    <!--Football-->
+    <color name="footballTeam_1_Color">#ffffff</color>
+    <color name="footballTeam_2_Color">#a50044</color>
+
+    <!--Basketball-->
+    <color name="basketballTeam_1_Color">#006bb5</color>
+    <color name="basketballTeam_2_Color">#ec174c</color>
+
+    <!--Hockey-->
+    <color name="hockeyTeam_1_Color">#cf132b</color>
+    <color name="hockeyTeam_2_Color">#ffcc33</color>
+
+    <!--Volleyball-->
+    <color name="volleyballTeam_1_Color">#01a0e2</color>
+    <color name="volleyballTeam_2_Color">#0b446a</color>
 </resources>

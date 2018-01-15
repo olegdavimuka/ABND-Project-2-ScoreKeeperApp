@@ -1,3 +1,173 @@
 <resources>
     <string name="app_name">Score Keeper</string>
+
+    <!--Football-->
+    <string name="football">Football</string>
+
+    <!--Team names-->
+    <string name="football_team_1">Real</string>
+    <string name="football_team_2">Barcelona</string>
+
+    <!--Team one players-->
+    <string name="football_team_1_player_1">Stegen</string>
+    <string name="football_team_1_player_2">Hernandez</string>
+    <string name="football_team_1_player_3">Ramos</string>
+    <string name="football_team_1_player_4">Nacho</string>
+    <string name="football_team_1_player_5">Carvajal</string>
+    <string name="football_team_1_player_6">Kovacic</string>
+    <string name="football_team_1_player_7">Ceballos</string>
+    <string name="football_team_1_player_8">Modric</string>
+    <string name="football_team_1_player_9">Asensio</string>
+    <string name="football_team_1_player_10">Benzema</string>
+    <string name="football_team_1_player_11">Bale</string>
+
+    <!--Team two players-->
+    <string name="football_team_2_player_1">Navas</string>
+    <string name="football_team_2_player_2">Semedo</string>
+    <string name="football_team_2_player_3">Pique</string>
+    <string name="football_team_2_player_4">Umtiti</string>
+    <string name="football_team_2_player_5">Alba</string>
+    <string name="football_team_2_player_6">Busquets</string>
+    <string name="football_team_2_player_7">Rakitic</string>
+    <string name="football_team_2_player_8">Denis Suarez</string>
+    <string name="football_team_2_player_9">Messi</string>
+    <string name="football_team_2_player_10">Suarez</string>
+    <string name="football_team_2_player_11">Deulofeu</string>
+
+    <!--Image descriptions-->
+    <string name="football_goal_image_description">Goals</string>
+    <string name="football_foul_image_description">Fouls</string>
+    <string name="football_yellow_card_image_description">Yellow cards</string>
+    <string name="football_red_card_image_description">Red cards</string>
+    <string name="football_offside_image_description">Offsides</string>
+    <string name="football_corner_kick_description">Corner kicks</string>
+    <string name="football_save_image_description">Saves</string>
+
+    <!--Player records-->
+    <string name="football_player_record_1">Goals</string>
+    <string name="football_player_record_2">Assists</string>
+
+    <!--Basketball-->
+    <string name="basketball">Basketball</string>
+
+    <!--Team names-->
+    <string name="basketball_team_1">Cleveland Cavaliers</string>
+    <string name="basketball_team_2">Oklahoma City Thunder</string>
+
+    <!--Team one players-->
+    <string name="basketball_team_1_player_1">Calderon</string>
+    <string name="basketball_team_1_player_2">Crowder</string>
+    <string name="basketball_team_1_player_3">Frye</string>
+    <string name="basketball_team_1_player_4">Green</string>
+    <string name="basketball_team_1_player_5">Holland</string>
+    <string name="basketball_team_1_player_6">James</string>
+    <string name="basketball_team_1_player_7">Korver</string>
+    <string name="basketball_team_1_player_8">Love</string>
+    <string name="basketball_team_1_player_9">Osman</string>
+    <string name="basketball_team_1_player_10">Perrantes</string>
+    <string name="basketball_team_1_player_11">Rose</string>
+    <string name="basketball_team_1_player_12">Shumpert</string>
+
+    <!--Team two players-->
+    <string name="basketball_team_2_player_1">Abrines</string>
+    <string name="basketball_team_2_player_2">Adams</string>
+    <string name="basketball_team_2_player_3">Anthony</string>
+    <string name="basketball_team_2_player_4">Collison</string>
+    <string name="basketball_team_2_player_5">Dozier</string>
+    <string name="basketball_team_2_player_6">Felton</string>
+    <string name="basketball_team_2_player_7">Ferguson</string>
+    <string name="basketball_team_2_player_8">George</string>
+    <string name="basketball_team_2_player_9">Grant</string>
+    <string name="basketball_team_2_player_10">Hamilton</string>
+    <string name="basketball_team_2_player_11">Huestis</string>
+    <string name="basketball_team_2_player_12">Johnson</string>
+
+    <!--Image descriptions-->
+    <string name="basketball_one_point_throw_image_description">One point throws</string>
+    <string name="basketball_two_point_throw_image_description">Two points throws</string>
+    <string name="basketball_three_point_throw_image_description">Three points throws</string>
+    <string name="basketball_blockade_image_description">Blockades</string>
+    <string name="basketball_interception_image_description">Interceptions</string>
+    <string name="basketball_foul_description">Fouls</string>
+    <string name="basketball_ball_pick_image_description">Ball picks</string>
+
+    <!--Player records-->
+    <string name="basketball_player_record_1">Points</string>
+    <string name="basketball_player_record_2">Blocks</string>
+
+    <!--Volleyball-->
+    <string name="volleyball">Volleyball</string>
+
+    <!--Team names-->
+    <string name="volleyball_team_1">Zenit-Kazan</string>
+    <string name="volleyball_team_2">Sada Cruzeiro</string>
+
+    <!--Team one players-->
+    <string name="volleyball_team_1_player_1">Anderson</string>
+    <string name="volleyball_team_1_player_2">Volvich</string>
+    <string name="volleyball_team_1_player_3">Alekno</string>
+    <string name="volleyball_team_1_player_4">Alekseev</string>
+    <string name="volleyball_team_1_player_5">Krotkov</string>
+    <string name="volleyball_team_1_player_6">Leon</string>
+
+    <!--Team two players-->
+    <string name="volleyball_team_2_player_1">Ventura</string>
+    <string name="volleyball_team_2_player_2">Telles</string>
+    <string name="volleyball_team_2_player_3">Kock</string>
+    <string name="volleyball_team_2_player_4">Uriarte</string>
+    <string name="volleyball_team_2_player_5">Silva</string>
+    <string name="volleyball_team_2_player_6">Ferraz</string>
+
+    <!--Image descriptions-->
+    <string name="volleyball_point_image_description">Points</string>
+    <string name="volleyball_ball_feed_image_description">Ball feeds</string>
+    <string name="volleyball_ball_reception_image_description">Ball receptions</string>
+    <string name="volleyball_attack_image_description">Attacks</string>
+    <string name="volleyball_block_image_description">Blocks</string>
+
+    <!--Player records-->
+    <string name="volleyball_player_record_1">Points</string>
+    <string name="volleyball_player_record_2">Blocks</string>
+
+    <!--Hockey-->
+    <string name="hockey">Hockey</string>
+
+    <!--Team names-->
+    <string name="hockey_team_1">Washington Capitals</string>
+    <string name="hockey_team_2">Pittsburgh Penguins</string>
+
+    <!--Team one players-->
+    <string name="hockey_team_1_player_1">Backstrom</string>
+    <string name="hockey_team_1_player_2">Beagle</string>
+    <string name="hockey_team_1_player_3">Bowey</string>
+    <string name="hockey_team_1_player_4">Burakovsky</string>
+    <string name="hockey_team_1_player_5">Carlson</string>
+    <string name="hockey_team_1_player_6">Chiasson</string>
+
+    <!--Team two players-->
+    <string name="hockey_team_2_player_1">Cole</string>
+    <string name="hockey_team_2_player_2">Crosby</string>
+    <string name="hockey_team_2_player_3">DeSmith</string>
+    <string name="hockey_team_2_player_4">Dumoulin</string>
+    <string name="hockey_team_2_player_5">Guentzel</string>
+    <string name="hockey_team_2_player_6">Hagelin</string>
+
+    <!--Image descriptions-->
+    <string name="hockey_goal_image_description">Goals</string>
+    <string name="hockey_penalty_image_description">Penalties</string>
+    <string name="hockey_player_removal_image_description">Player removals</string>
+    <string name="hockey_body_check_image_description">Body checks</string>
+    <string name="hockey_block_image_description">Blocks</string>
+
+    <!--Player records-->
+    <string name="hockey_player_record_1">Goals</string>
+    <string name="hockey_player_record_2">Blocks</string>
+
+    <!--Other-->
+    <string name="plus_one">+1</string>
+    <string name="zero">0</string>
+    <string name="show_players">Show Players</string>
+    <string name="hide_players">Hide Players</string>
+    <string name="reset">Reset</string>
+
 </resources>

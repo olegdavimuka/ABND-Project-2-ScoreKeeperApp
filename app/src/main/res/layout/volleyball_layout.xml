@@ -1,0 +1,843 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/volleyball_background">
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        tools:context="com.example.android.scorekeeper.MainActivity">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="@string/volleyball"
+            android:textColor="@android:color/black"
+            android:textSize="30sp"
+            android:textStyle="italic|bold" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                style="@style/TeamAndTeamScoreTextView"
+                android:text="@string/volleyball_team_1" />
+
+            <TextView
+                style="@style/TeamAndTeamScoreTextView"
+                android:text="@string/volleyball_team_2" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/volleyballTeam_1_Score"
+                style="@style/TeamAndTeamScoreTextView"
+                android:text="@string/zero"
+                android:textSize="48sp" />
+
+            <TextView
+                android:id="@+id/volleyballTeam_2_Score"
+                style="@style/TeamAndTeamScoreTextView"
+                android:text="@string/zero"
+                android:textSize="48sp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/volleyballPointLinearLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <Button
+                android:id="@+id/volleyballTeam_1_PointButton"
+                style="@style/TeamButton"
+                android:layout_marginStart="8dp"
+                android:nextFocusForward="@id/volleyballTeam_1_PointTextView" />
+
+            <TextView
+                android:id="@+id/volleyballTeam_1_PointTextView"
+                style="@style/TeamTextView" />
+
+            <ImageView
+                android:id="@+id/volleyballPointImageView"
+                style="@style/TeamImage"
+                android:contentDescription="@string/volleyball_point_image_description"
+                android:src="@drawable/one_point" />
+
+            <TextView
+                android:id="@+id/volleyballTeam_2_PointTextView"
+                style="@style/TeamTextView" />
+
+            <Button
+                android:id="@+id/volleyballTeam_2_PointButton"
+                style="@style/TeamButton"
+                android:layout_marginEnd="8dp"
+                android:nextFocusForward="@id/volleyballTeam_2_PointTextView" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/volleyballBallFeedLinearLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <Button
+                android:id="@+id/volleyballTeam_1_BallFeedButton"
+                style="@style/TeamButton"
+                android:layout_marginStart="8dp"
+                android:nextFocusForward="@id/volleyballTeam_1_BallFeedTextView" />
+
+            <TextView
+                android:id="@+id/volleyballTeam_1_BallFeedTextView"
+                style="@style/TeamTextView" />
+
+            <ImageView
+                android:id="@+id/volleyballBallFeedImageView"
+                style="@style/TeamImage"
+                android:contentDescription="@string/volleyball_ball_feed_image_description"
+                android:src="@drawable/volleyball_ball_feed" />
+
+            <TextView
+                android:id="@+id/volleyballTeam_2_BallFeedTextView"
+                style="@style/TeamTextView" />
+
+            <Button
+                android:id="@+id/volleyballTeam_2_BallFeedButton"
+                style="@style/TeamButton"
+                android:layout_marginEnd="8dp"
+                android:nextFocusForward="@id/volleyballTeam_2_BallFeedTextView" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/volleyballBallReceptionLinearLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <Button
+                android:id="@+id/volleyballTeam_1_BallReceptionButton"
+                style="@style/TeamButton"
+                android:layout_marginStart="8dp"
+                android:nextFocusForward="@id/volleyballTeam_1_BallReceptionTextView" />
+
+            <TextView
+                android:id="@+id/volleyballTeam_1_BallReceptionTextView"
+                style="@style/TeamTextView" />
+
+            <ImageView
+                android:id="@+id/volleyballBallReceptionImageView"
+                style="@style/TeamImage"
+                android:contentDescription="@string/volleyball_ball_reception_image_description"
+                android:src="@drawable/volleyball_ball_interception" />
+
+            <TextView
+                android:id="@+id/volleyballTeam_2_BallReceptionTextView"
+                style="@style/TeamTextView" />
+
+            <Button
+                android:id="@+id/volleyballTeam_2_BallReceptionButton"
+                style="@style/TeamButton"
+                android:layout_marginEnd="8dp"
+                android:nextFocusForward="@id/volleyballTeam_2_BallReceptionTextView" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/volleyballAttackLinearLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <Button
+                android:id="@+id/volleyballTeam_1_AttackButton"
+                style="@style/TeamButton"
+                android:layout_marginStart="8dp"
+                android:nextFocusForward="@id/volleyballTeam_1_AttackTextView" />
+
+            <TextView
+                android:id="@+id/volleyballTeam_1_AttackTextView"
+                style="@style/TeamTextView" />
+
+            <ImageView
+                android:id="@+id/volleyballAttackImageView"
+                style="@style/TeamImage"
+                android:contentDescription="@string/volleyball_attack_image_description"
+                android:src="@drawable/volleyball_attack" />
+
+            <TextView
+                android:id="@+id/volleyballTeam_2_AttackTextView"
+                style="@style/TeamTextView" />
+
+            <Button
+                android:id="@+id/volleyballTeam_2_AttackButton"
+                style="@style/TeamButton"
+                android:layout_marginEnd="8dp"
+                android:nextFocusForward="@id/volleyballTeam_2_AttackTextView" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/volleyballBlockLinearLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <Button
+                android:id="@+id/volleyballTeam_1_BlockButton"
+                style="@style/TeamButton"
+                android:layout_marginStart="8dp"
+                android:nextFocusForward="@id/volleyballTeam_1_BlockTextView" />
+
+            <TextView
+                android:id="@+id/volleyballTeam_1_BlockTextView"
+                style="@style/TeamTextView" />
+
+            <ImageView
+                android:id="@+id/volleyballBlockImageView"
+                style="@style/TeamImage"
+                android:contentDescription="@string/volleyball_block_image_description"
+                android:src="@drawable/volleyball_block" />
+
+            <TextView
+                android:id="@+id/volleyballTeam_2_BlockTextView"
+                style="@style/TeamTextView" />
+
+            <Button
+                android:id="@+id/volleyballTeam_2_BlockButton"
+                style="@style/TeamButton"
+                android:layout_marginEnd="8dp"
+                android:nextFocusForward="@id/volleyballTeam_2_BlockTextView" />
+
+        </LinearLayout>
+
+
+        <Button
+            android:id="@+id/volleyballShowHidePlayersButton"
+            style="@style/ShowPlayersAndResetButton"
+            android:text="@string/hide_players" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:baselineAligned="false"
+            android:orientation="horizontal">
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <Button
+                    android:id="@+id/volleyballTeam_1_Player_1_Button"
+                    style="@style/PlayerButton"
+                    android:nextFocusForward="@id/volleyballTeam_1_Player_1_LinearLayout"
+                    android:text="@string/volleyball_team_1_player_1" />
+
+                <LinearLayout
+                    android:id="@+id/volleyballTeam_1_Player_1_LinearLayout"
+                    style="@style/PlayerLinearLayout">
+
+                    <Button
+                        android:id="@+id/volleyballTeam_1_Player_1_Record_1_Button"
+                        style="@style/PlayerPlusOneButton"
+                        android:nextFocusForward="@id/volleyballTeam_1_Player_1_Record_1_TextView" />
+
+                    <LinearLayout
+                        style="@style/RecordLinearLayout"
+                        android:layout_width="0dp">
+
+                        <TextView
+                            style="@style/PlayerRecordTextView"
+                            android:text="@string/volleyball_player_record_1" />
+
+                        <TextView
+                            android:id="@+id/volleyballTeam_1_Player_1_Record_1_TextView"
+                            style="@style/PlayerTextView" />
+
+                    </LinearLayout>
+
+                    <Button
+                        android:id="@+id/volleyballTeam_1_Player_1_Record_2_Button"
+                        style="@style/PlayerPlusOneButton"
+                        android:nextFocusForward="@id/volleyballTeam_1_Player_1_Record_2_TextView" />
+
+                    <LinearLayout
+                        style="@style/RecordLinearLayout"
+                        android:layout_width="0dp">
+
+                        <TextView
+                            style="@style/PlayerRecordTextView"
+                            android:text="@string/volleyball_player_record_2" />
+
+                        <TextView
+                            android:id="@+id/volleyballTeam_1_Player_1_Record_2_TextView"
+                            style="@style/PlayerTextView" />
+
+                    </LinearLayout>
+                </LinearLayout>
+
+                <Button
+                    android:id="@+id/volleyballTeam_1_Player_2_Button"
+                    style="@style/PlayerButton"
+                    android:nextFocusForward="@id/volleyballTeam_1_Player_2_LinearLayout"
+                    android:text="@string/volleyball_team_1_player_2" />
+
+                <LinearLayout
+                    android:id="@+id/volleyballTeam_1_Player_2_LinearLayout"
+                    style="@style/PlayerLinearLayout">
+
+                    <Button
+                        android:id="@+id/volleyballTeam_1_Player_2_Record_1_Button"
+                        style="@style/PlayerPlusOneButton"
+                        android:nextFocusForward="@id/volleyballTeam_1_Player_2_Record_1_TextView" />
+
+                    <LinearLayout
+                        style="@style/RecordLinearLayout"
+                        android:layout_width="0dp">
+
+                        <TextView
+                            style="@style/PlayerRecordTextView"
+                            android:text="@string/volleyball_player_record_1" />
+
+                        <TextView
+                            android:id="@+id/volleyballTeam_1_Player_2_Record_1_TextView"
+                            style="@style/PlayerTextView" />
+
+                    </LinearLayout>
+
+                    <Button
+                        android:id="@+id/volleyballTeam_1_Player_2_Record_2_Button"
+                        style="@style/PlayerPlusOneButton"
+                        android:nextFocusForward="@id/volleyballTeam_1_Player_2_Record_2_TextView" />
+
+                    <LinearLayout
+                        style="@style/RecordLinearLayout"
+                        android:layout_width="0dp">
+
+                        <TextView
+                            style="@style/PlayerRecordTextView"
+                            android:text="@string/volleyball_player_record_2" />
+
+                        <TextView
+                            android:id="@+id/volleyballTeam_1_Player_2_Record_2_TextView"
+                            style="@style/PlayerTextView" />
+
+                    </LinearLayout>
+                </LinearLayout>
+
+                <Button
+                    android:id="@+id/volleyballTeam_1_Player_3_Button"
+                    style="@style/PlayerButton"
+                    android:nextFocusForward="@id/volleyballTeam_1_Player_3_LinearLayout"
+                    android:text="@string/volleyball_team_1_player_3" />
+
+                <LinearLayout
+                    android:id="@+id/volleyballTeam_1_Player_3_LinearLayout"
+                    style="@style/PlayerLinearLayout">
+
+                    <Button
+                        android:id="@+id/volleyballTeam_1_Player_3_Record_1_Button"
+                        style="@style/PlayerPlusOneButton"
+                        android:nextFocusForward="@id/volleyballTeam_1_Player_3_Record_1_TextView" />
+
+                    <LinearLayout
+                        style="@style/RecordLinearLayout"
+                        android:layout_width="0dp">
+
+                        <TextView
+                            style="@style/PlayerRecordTextView"
+                            android:text="@string/volleyball_player_record_1" />
+
+                        <TextView
+                            android:id="@+id/volleyballTeam_1_Player_3_Record_1_TextView"
+                            style="@style/PlayerTextView" />
+
+                    </LinearLayout>
+
+                    <Button
+                        android:id="@+id/volleyballTeam_1_Player_3_Record_2_Button"
+                        style="@style/PlayerPlusOneButton"
+                        android:nextFocusForward="@id/volleyballTeam_1_Player_3_Record_2_TextView" />
+
+                    <LinearLayout
+                        style="@style/RecordLinearLayout"
+                        android:layout_width="0dp">
+
+                        <TextView
+                            style="@style/PlayerRecordTextView"
+                            android:text="@string/volleyball_player_record_2" />
+
+                        <TextView
+                            android:id="@+id/volleyballTeam_1_Player_3_Record_2_TextView"
+                            style="@style/PlayerTextView" />
+
+                    </LinearLayout>
+                </LinearLayout>
+
+                <Button
+                    android:id="@+id/volleyballTeam_1_Player_4_Button"
+                    style="@style/PlayerButton"
+                    android:nextFocusForward="@id/volleyballTeam_1_Player_4_LinearLayout"
+                    android:text="@string/volleyball_team_1_player_4" />
+
+                <LinearLayout
+                    android:id="@+id/volleyballTeam_1_Player_4_LinearLayout"
+                    style="@style/PlayerLinearLayout">
+
+                    <Button
+                        android:id="@+id/volleyballTeam_1_Player_4_Record_1_Button"
+                        style="@style/PlayerPlusOneButton"
+                        android:nextFocusForward="@id/volleyballTeam_1_Player_4_Record_1_TextView" />
+
+                    <LinearLayout
+                        style="@style/RecordLinearLayout"
+                        android:layout_width="0dp">
+
+                        <TextView
+                            style="@style/PlayerRecordTextView"
+                            android:text="@string/volleyball_player_record_1" />
+
+                        <TextView
+                            android:id="@+id/volleyballTeam_1_Player_4_Record_1_TextView"
+                            style="@style/PlayerTextView" />
+
+                    </LinearLayout>
+
+                    <Button
+                        android:id="@+id/volleyballTeam_1_Player_4_Record_2_Button"
+                        style="@style/PlayerPlusOneButton"
+                        android:nextFocusForward="@id/volleyballTeam_1_Player_4_Record_2_TextView" />
+
+                    <LinearLayout
+                        style="@style/RecordLinearLayout"
+                        android:layout_width="0dp">
+
+                        <TextView
+                            style="@style/PlayerRecordTextView"
+                            android:text="@string/volleyball_player_record_2" />
+
+                        <TextView
+                            android:id="@+id/volleyballTeam_1_Player_4_Record_2_TextView"
+                            style="@style/PlayerTextView" />
+
+                    </LinearLayout>
+                </LinearLayout>
+
+                <Button
+                    android:id="@+id/volleyballTeam_1_Player_5_Button"
+                    style="@style/PlayerButton"
+                    android:nextFocusForward="@id/volleyballTeam_1_Player_5_LinearLayout"
+                    android:text="@string/volleyball_team_1_player_5" />
+
+                <LinearLayout
+                    android:id="@+id/volleyballTeam_1_Player_5_LinearLayout"
+                    style="@style/PlayerLinearLayout">
+
+                    <Button
+                        android:id="@+id/volleyballTeam_1_Player_5_Record_1_Button"
+                        style="@style/PlayerPlusOneButton"
+                        android:nextFocusForward="@id/volleyballTeam_1_Player_5_Record_1_TextView" />
+
+                    <LinearLayout
+                        style="@style/RecordLinearLayout"
+                        android:layout_width="0dp">
+
+                        <TextView
+                            style="@style/PlayerRecordTextView"
+                            android:text="@string/volleyball_player_record_1" />
+
+                        <TextView
+                            android:id="@+id/volleyballTeam_1_Player_5_Record_1_TextView"
+                            style="@style/PlayerTextView" />
+
+                    </LinearLayout>
+
+                    <Button
+                        android:id="@+id/volleyballTeam_1_Player_5_Record_2_Button"
+                        style="@style/PlayerPlusOneButton"
+                        android:nextFocusForward="@id/volleyballTeam_1_Player_5_Record_2_TextView" />
+
+                    <LinearLayout
+                        style="@style/RecordLinearLayout"
+                        android:layout_width="0dp">
+
+                        <TextView
+                            style="@style/PlayerRecordTextView"
+                            android:text="@string/volleyball_player_record_2" />
+
+                        <TextView
+                            android:id="@+id/volleyballTeam_1_Player_5_Record_2_TextView"
+                            style="@style/PlayerTextView" />
+
+                    </LinearLayout>
+                </LinearLayout>
+
+                <Button
+                    android:id="@+id/volleyballTeam_1_Player_6_Button"
+                    style="@style/PlayerButton"
+                    android:nextFocusForward="@id/volleyballTeam_1_Player_6_LinearLayout"
+                    android:text="@string/volleyball_team_1_player_6" />
+
+                <LinearLayout
+                    android:id="@+id/volleyballTeam_1_Player_6_LinearLayout"
+                    style="@style/PlayerLinearLayout">
+
+                    <Button
+                        android:id="@+id/volleyballTeam_1_Player_6_Record_1_Button"
+                        style="@style/PlayerPlusOneButton"
+                        android:nextFocusForward="@id/volleyballTeam_1_Player_6_Record_1_TextView" />
+
+                    <LinearLayout
+                        style="@style/RecordLinearLayout"
+                        android:layout_width="0dp">
+
+                        <TextView
+                            style="@style/PlayerRecordTextView"
+                            android:text="@string/volleyball_player_record_1" />
+
+                        <TextView
+                            android:id="@+id/volleyballTeam_1_Player_6_Record_1_TextView"
+                            style="@style/PlayerTextView" />
+
+                    </LinearLayout>
+
+                    <Button
+                        android:id="@+id/volleyballTeam_1_Player_6_Record_2_Button"
+                        style="@style/PlayerPlusOneButton"
+                        android:nextFocusForward="@id/volleyballTeam_1_Player_6_Record_2_TextView" />
+
+                    <LinearLayout
+                        style="@style/RecordLinearLayout"
+                        android:layout_width="0dp">
+
+                        <TextView
+                            style="@style/PlayerRecordTextView"
+                            android:text="@string/volleyball_player_record_2" />
+
+                        <TextView
+                            android:id="@+id/volleyballTeam_1_Player_6_Record_2_TextView"
+                            style="@style/PlayerTextView" />
+
+                    </LinearLayout>
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <Button
+                    android:id="@+id/volleyballTeam_2_Player_1_Button"
+                    style="@style/PlayerButton"
+                    android:nextFocusForward="@id/volleyballTeam_2_Player_1_LinearLayout"
+                    android:text="@string/volleyball_team_2_player_1" />
+
+                <LinearLayout
+                    android:id="@+id/volleyballTeam_2_Player_1_LinearLayout"
+                    style="@style/PlayerLinearLayout">
+
+                    <Button
+                        android:id="@+id/volleyballTeam_2_Player_1_Record_1_Button"
+                        style="@style/PlayerPlusOneButton"
+                        android:nextFocusForward="@id/volleyballTeam_2_Player_1_Record_1_TextView" />
+
+                    <LinearLayout
+                        style="@style/RecordLinearLayout"
+                        android:layout_width="0dp">
+
+                        <TextView
+                            style="@style/PlayerRecordTextView"
+                            android:text="@string/volleyball_player_record_1" />
+
+                        <TextView
+                            android:id="@+id/volleyballTeam_2_Player_1_Record_1_TextView"
+                            style="@style/PlayerTextView" />
+
+                    </LinearLayout>
+
+                    <Button
+                        android:id="@+id/volleyballTeam_2_Player_1_Record_2_Button"
+                        style="@style/PlayerPlusOneButton"
+                        android:nextFocusForward="@id/volleyballTeam_2_Player_1_Record_2_TextView" />
+
+                    <LinearLayout
+                        style="@style/RecordLinearLayout"
+                        android:layout_width="0dp">
+
+                        <TextView
+                            style="@style/PlayerRecordTextView"
+                            android:text="@string/volleyball_player_record_2" />
+
+                        <TextView
+                            android:id="@+id/volleyballTeam_2_Player_1_Record_2_TextView"
+                            style="@style/PlayerTextView" />
+
+                    </LinearLayout>
+                </LinearLayout>
+
+                <Button
+                    android:id="@+id/volleyballTeam_2_Player_2_Button"
+                    style="@style/PlayerButton"
+                    android:nextFocusForward="@id/volleyballTeam_2_Player_2_LinearLayout"
+                    android:text="@string/volleyball_team_2_player_2" />
+
+                <LinearLayout
+                    android:id="@+id/volleyballTeam_2_Player_2_LinearLayout"
+                    style="@style/PlayerLinearLayout">
+
+                    <Button
+                        android:id="@+id/volleyballTeam_2_Player_2_Record_1_Button"
+                        style="@style/PlayerPlusOneButton"
+                        android:nextFocusForward="@id/volleyballTeam_2_Player_2_Record_1_TextView" />
+
+                    <LinearLayout
+                        style="@style/RecordLinearLayout"
+                        android:layout_width="0dp">
+
+                        <TextView
+                            style="@style/PlayerRecordTextView"
+                            android:text="@string/volleyball_player_record_1" />
+
+                        <TextView
+                            android:id="@+id/volleyballTeam_2_Player_2_Record_1_TextView"
+                            style="@style/PlayerTextView" />
+
+                    </LinearLayout>
+
+                    <Button
+                        android:id="@+id/volleyballTeam_2_Player_2_Record_2_Button"
+                        style="@style/PlayerPlusOneButton"
+                        android:nextFocusForward="@id/volleyballTeam_2_Player_2_Record_2_TextView" />
+
+                    <LinearLayout
+                        style="@style/RecordLinearLayout"
+                        android:layout_width="0dp">
+
+                        <TextView
+                            style="@style/PlayerRecordTextView"
+                            android:text="@string/volleyball_player_record_2" />
+
+                        <TextView
+                            android:id="@+id/volleyballTeam_2_Player_2_Record_2_TextView"
+                            style="@style/PlayerTextView" />
+
+                    </LinearLayout>
+                </LinearLayout>
+
+                <Button
+                    android:id="@+id/volleyballTeam_2_Player_3_Button"
+                    style="@style/PlayerButton"
+                    android:nextFocusForward="@id/volleyballTeam_2_Player_3_LinearLayout"
+                    android:text="@string/volleyball_team_2_player_3" />
+
+                <LinearLayout
+                    android:id="@+id/volleyballTeam_2_Player_3_LinearLayout"
+                    style="@style/PlayerLinearLayout">
+
+                    <Button
+                        android:id="@+id/volleyballTeam_2_Player_3_Record_1_Button"
+                        style="@style/PlayerPlusOneButton"
+                        android:nextFocusForward="@id/volleyballTeam_2_Player_3_Record_1_TextView" />
+
+                    <LinearLayout
+                        style="@style/RecordLinearLayout"
+                        android:layout_width="0dp">
+
+                        <TextView
+                            style="@style/PlayerRecordTextView"
+                            android:text="@string/volleyball_player_record_1" />
+
+                        <TextView
+                            android:id="@+id/volleyballTeam_2_Player_3_Record_1_TextView"
+                            style="@style/PlayerTextView" />
+
+                    </LinearLayout>
+
+                    <Button
+                        android:id="@+id/volleyballTeam_2_Player_3_Record_2_Button"
+                        style="@style/PlayerPlusOneButton"
+                        android:nextFocusForward="@id/volleyballTeam_2_Player_3_Record_2_TextView" />
+
+                    <LinearLayout
+                        style="@style/RecordLinearLayout"
+                        android:layout_width="0dp">
+
+                        <TextView
+                            style="@style/PlayerRecordTextView"
+                            android:text="@string/volleyball_player_record_2" />
+
+                        <TextView
+                            android:id="@+id/volleyballTeam_2_Player_3_Record_2_TextView"
+                            style="@style/PlayerTextView" />
+
+                    </LinearLayout>
+                </LinearLayout>
+
+                <Button
+                    android:id="@+id/volleyballTeam_2_Player_4_Button"
+                    style="@style/PlayerButton"
+                    android:nextFocusForward="@id/volleyballTeam_2_Player_4_LinearLayout"
+                    android:text="@string/volleyball_team_2_player_4" />
+
+                <LinearLayout
+                    android:id="@+id/volleyballTeam_2_Player_4_LinearLayout"
+                    style="@style/PlayerLinearLayout">
+
+                    <Button
+                        android:id="@+id/volleyballTeam_2_Player_4_Record_1_Button"
+                        style="@style/PlayerPlusOneButton"
+                        android:nextFocusForward="@id/volleyballTeam_2_Player_4_Record_1_TextView" />
+
+                    <LinearLayout
+                        style="@style/RecordLinearLayout"
+                        android:layout_width="0dp">
+
+                        <TextView
+                            style="@style/PlayerRecordTextView"
+                            android:text="@string/volleyball_player_record_1" />
+
+                        <TextView
+                            android:id="@+id/volleyballTeam_2_Player_4_Record_1_TextView"
+                            style="@style/PlayerTextView" />
+
+                    </LinearLayout>
+
+                    <Button
+                        android:id="@+id/volleyballTeam_2_Player_4_Record_2_Button"
+                        style="@style/PlayerPlusOneButton"
+                        android:nextFocusForward="@id/volleyballTeam_2_Player_4_Record_2_TextView" />
+
+                    <LinearLayout
+                        style="@style/RecordLinearLayout"
+                        android:layout_width="0dp">
+
+                        <TextView
+                            style="@style/PlayerRecordTextView"
+                            android:text="@string/volleyball_player_record_2" />
+
+                        <TextView
+                            android:id="@+id/volleyballTeam_2_Player_4_Record_2_TextView"
+                            style="@style/PlayerTextView" />
+
+                    </LinearLayout>
+                </LinearLayout>
+
+                <Button
+                    android:id="@+id/volleyballTeam_2_Player_5_Button"
+                    style="@style/PlayerButton"
+                    android:nextFocusForward="@id/volleyballTeam_2_Player_5_LinearLayout"
+                    android:text="@string/volleyball_team_2_player_5" />
+
+                <LinearLayout
+                    android:id="@+id/volleyballTeam_2_Player_5_LinearLayout"
+                    style="@style/PlayerLinearLayout">
+
+                    <Button
+                        android:id="@+id/volleyballTeam_2_Player_5_Record_1_Button"
+                        style="@style/PlayerPlusOneButton"
+                        android:nextFocusForward="@id/volleyballTeam_2_Player_5_Record_1_TextView" />
+
+                    <LinearLayout
+                        style="@style/RecordLinearLayout"
+                        android:layout_width="0dp">
+
+                        <TextView
+                            style="@style/PlayerRecordTextView"
+                            android:text="@string/volleyball_player_record_1" />
+
+                        <TextView
+                            android:id="@+id/volleyballTeam_2_Player_5_Record_1_TextView"
+                            style="@style/PlayerTextView" />
+
+                    </LinearLayout>
+
+                    <Button
+                        android:id="@+id/volleyballTeam_2_Player_5_Record_2_Button"
+                        style="@style/PlayerPlusOneButton"
+                        android:nextFocusForward="@id/volleyballTeam_2_Player_5_Record_2_TextView" />
+
+                    <LinearLayout
+                        style="@style/RecordLinearLayout"
+                        android:layout_width="0dp">
+
+                        <TextView
+                            style="@style/PlayerRecordTextView"
+                            android:text="@string/volleyball_player_record_2" />
+
+                        <TextView
+                            android:id="@+id/volleyballTeam_2_Player_5_Record_2_TextView"
+                            style="@style/PlayerTextView" />
+
+                    </LinearLayout>
+                </LinearLayout>
+
+                <Button
+                    android:id="@+id/volleyballTeam_2_Player_6_Button"
+                    style="@style/PlayerButton"
+                    android:nextFocusForward="@id/volleyballTeam_2_Player_6_LinearLayout"
+                    android:text="@string/volleyball_team_2_player_6" />
+
+                <LinearLayout
+                    android:id="@+id/volleyballTeam_2_Player_6_LinearLayout"
+                    style="@style/PlayerLinearLayout">
+
+                    <Button
+                        android:id="@+id/volleyballTeam_2_Player_6_Record_1_Button"
+                        style="@style/PlayerPlusOneButton"
+                        android:nextFocusForward="@id/volleyballTeam_2_Player_6_Record_1_TextView" />
+
+                    <LinearLayout
+                        style="@style/RecordLinearLayout"
+                        android:layout_width="0dp">
+
+                        <TextView
+                            style="@style/PlayerRecordTextView"
+                            android:text="@string/volleyball_player_record_1" />
+
+                        <TextView
+                            android:id="@+id/volleyballTeam_2_Player_6_Record_1_TextView"
+                            style="@style/PlayerTextView" />
+
+                    </LinearLayout>
+
+                    <Button
+                        android:id="@+id/volleyballTeam_2_Player_6_Record_2_Button"
+                        style="@style/PlayerPlusOneButton"
+                        android:nextFocusForward="@id/volleyballTeam_2_Player_6_Record_2_TextView" />
+
+                    <LinearLayout
+                        style="@style/RecordLinearLayout"
+                        android:layout_width="0dp">
+
+                        <TextView
+                            style="@style/PlayerRecordTextView"
+                            android:text="@string/volleyball_player_record_2" />
+
+                        <TextView
+                            android:id="@+id/volleyballTeam_2_Player_6_Record_2_TextView"
+                            style="@style/PlayerTextView" />
+
+                    </LinearLayout>
+                </LinearLayout>
+
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/volleyballResetButton"
+            style="@style/ShowPlayersAndResetButton"
+            android:text="@string/reset" />
+    </LinearLayout>
+</ScrollView>
