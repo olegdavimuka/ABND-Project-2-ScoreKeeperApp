@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!--Sport-->
+    <dimen name="sport_name_text_size">30sp</dimen>
+
+    <!--Team names-->
+    <dimen name="team_text_size">24sp</dimen>
+
+    <!--Team scores-->
+    <dimen name="team_score_text_size">48sp</dimen>
+
+    <!--Team linearLayouts-->
+    <dimen name="team_linear_layout_margin_start_end">8dp</dimen>
+
+    <!--Team buttons-->
+    <dimen name="team_button_height">48dp</dimen>
+
+    <!--Team textViews-->
+    <dimen name="team_text_view_text_size">48sp</dimen>
+
+    <!--Show/hide players and reset buttons-->
+    <dimen name="show_players_and_reset_button_margin_start_end">64dp</dimen>
+
+    <!--Player buttons-->
+    <dimen name="player_button_margin_start_end">8dp</dimen>
+
+    <!--Player textViews-->
+    <dimen name="player_text_view_text_size">24sp</dimen>
+
+    <!--Player linearLayouts-->
+    <dimen name="player_linear_layout_margin_start">16dp</dimen>
+    <dimen name="player_linear_layout_margin_end">8dp</dimen>
+
+    <!--Player records textViews-->
+    <dimen name="player_record_text_view_text_size">12sp</dimen>
+
+    <!--News-->
+    <dimen name="piece_of_news_image_dimensions">128dp</dimen>
+    <dimen name="piece_of_news_title_margin_start">8dp</dimen>
+    <dimen name="piece_of_news_description_margin_start">16dp</dimen>
+    <dimen name="piece_of_news_description_margin_end">8dp</dimen>
+    <dimen name="piece_of_news_description_line_spacing">1dp</dimen>
+</resources>

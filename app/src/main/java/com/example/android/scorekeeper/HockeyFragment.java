@@ -1,6 +1,7 @@
 package com.example.android.scorekeeper;
 
 import android.os.Bundle;
+import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -10,28 +11,41 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 
 public class HockeyFragment extends Fragment {
+
+    HashMap<String, String> savedValues = new HashMap<>();
+
+    private View rootView;
 
     public HockeyFragment() {
         // Required empty public constructor
     }
 
     @Override
+    public void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        if (savedInstanceState != null) {
+            for (String key : savedInstanceState.keySet()) {
+                if (!key.equals("android:view_state") && !key.equals("android:user_visible_hint")) {
+                    savedValues.put(key, savedInstanceState.getString(key));
+                }
+            }
+        }
+    }
+
+    @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-
-        final View rootView = inflater.inflate(R.layout.hockey_layout, container, false);
+        rootView = inflater.inflate(R.layout.hockey_layout, container, false);
 
         // Team_1
-        final HockeyTeam Team_1 = new HockeyTeam(getString(R.string.hockey_team_1), 0,
-                0, 0, 0, 0);
+        final Team Team_1 = new Team(getString(R.string.hockey_team_1), 0, 0, 0);
 
-        Team_1.setGoalCountButton((Button) rootView.findViewById(R.id.hockeyTeam_1_GoalButton));
-        Team_1.setPenaltyCountButton((Button) rootView.findViewById(R.id.hockeyTeam_1_PenaltyButton));
-        Team_1.setPlayerRemovalCountButton((Button) rootView.findViewById(R.id.hockeyTeam_1_PlayerRemovalButton));
-        Team_1.setBodyCheckCountButton((Button) rootView.findViewById(R.id.hockeyTeam_1_BodyCheckButton));
-        Team_1.setBlockCountButton((Button) rootView.findViewById(R.id.hockeyTeam_1_BlockButton));
+        Team_1.setStatistic_1_Button((Button) rootView.findViewById(R.id.hockeyTeam_1_GoalButton));
+        Team_1.setStatistic_2_Button((Button) rootView.findViewById(R.id.hockeyTeam_1_PenaltyButton));
+        Team_1.setStatistic_3_Button((Button) rootView.findViewById(R.id.hockeyTeam_1_BodyCheckButton));
 
         // Team_1 players
         Player Team_1_Player_1 = new Player(Team_1.getName(),
@@ -69,38 +83,28 @@ public class HockeyFragment extends Fragment {
         Team_1_Player_5.setPlayerRecord_1_Button((Button) rootView.findViewById(R.id.hockeyTeam_1_Player_5_Record_1_Button));
         Team_1_Player_5.setPlayerRecord_2_Button((Button) rootView.findViewById(R.id.hockeyTeam_1_Player_5_Record_2_Button));
 
-        Player Team_1_Player_6 = new Player(Team_1.getName(),
-                getString(R.string.hockey_team_1_player_6), 0, 0);
-
-        Team_1_Player_6.setPlayerButton((Button) rootView.findViewById(R.id.hockeyTeam_1_Player_6_Button));
-        Team_1_Player_6.setPlayerRecord_1_Button((Button) rootView.findViewById(R.id.hockeyTeam_1_Player_6_Record_1_Button));
-        Team_1_Player_6.setPlayerRecord_2_Button((Button) rootView.findViewById(R.id.hockeyTeam_1_Player_6_Record_2_Button));
-
         ArrayList<Player> Team_1_Players = new ArrayList<>();
-        Team_1_Players.add(Team_1_Player_3);
+        Team_1_Players.add(Team_1_Player_1);
         Team_1_Players.add(Team_1_Player_2);
         Team_1_Players.add(Team_1_Player_3);
         Team_1_Players.add(Team_1_Player_4);
         Team_1_Players.add(Team_1_Player_5);
-        Team_1_Players.add(Team_1_Player_6);
 
         Team_1.setPlayers(Team_1_Players);
 
         // Team_2
-        final HockeyTeam Team_2 = new HockeyTeam(getString(R.string.hockey_team_2), 0,
-                0, 0, 0, 0);
+        final Team Team_2 = new Team(getString(R.string.hockey_team_2), 0, 0, 0);
 
-        Team_2.setGoalCountButton((Button) rootView.findViewById(R.id.hockeyTeam_2_GoalButton));
-        Team_2.setPenaltyCountButton((Button) rootView.findViewById(R.id.hockeyTeam_2_PenaltyButton));
-        Team_2.setPlayerRemovalCountButton((Button) rootView.findViewById(R.id.hockeyTeam_2_PlayerRemovalButton));
-        Team_2.setBodyCheckCountButton((Button) rootView.findViewById(R.id.hockeyTeam_2_BodyCheckButton));
-        Team_2.setBlockCountButton((Button) rootView.findViewById(R.id.hockeyTeam_2_BlockButton));
+        Team_2.setStatistic_1_Button((Button) rootView.findViewById(R.id.hockeyTeam_2_GoalButton));
+        Team_2.setStatistic_2_Button((Button) rootView.findViewById(R.id.hockeyTeam_2_PenaltyButton));
+        Team_2.setStatistic_3_Button((Button) rootView.findViewById(R.id.hockeyTeam_2_BodyCheckButton));
+
 
         // Team_2 players
         Player Team_2_Player_1 = new Player(Team_2.getName(),
                 getString(R.string.hockey_team_2_player_1), 0, 0);
 
-        Team_2_Player_1.setPlayerButton((Button) rootView.findViewById(R.id.hockeyTeam_2_Player_2_Button));
+        Team_2_Player_1.setPlayerButton((Button) rootView.findViewById(R.id.hockeyTeam_2_Player_1_Button));
         Team_2_Player_1.setPlayerRecord_1_Button((Button) rootView.findViewById(R.id.hockeyTeam_2_Player_1_Record_1_Button));
         Team_2_Player_1.setPlayerRecord_2_Button((Button) rootView.findViewById(R.id.hockeyTeam_2_Player_1_Record_2_Button));
 
@@ -132,21 +136,12 @@ public class HockeyFragment extends Fragment {
         Team_2_Player_5.setPlayerRecord_1_Button((Button) rootView.findViewById(R.id.hockeyTeam_2_Player_5_Record_1_Button));
         Team_2_Player_5.setPlayerRecord_2_Button((Button) rootView.findViewById(R.id.hockeyTeam_2_Player_5_Record_2_Button));
 
-        Player Team_2_Player_6 = new Player(Team_2.getName(),
-                getString(R.string.hockey_team_2_player_6), 0, 0);
-
-        Team_2_Player_6.setPlayerButton((Button) rootView.findViewById(R.id.hockeyTeam_2_Player_6_Button));
-        Team_2_Player_6.setPlayerRecord_1_Button((Button) rootView.findViewById(R.id.hockeyTeam_2_Player_6_Record_1_Button));
-        Team_2_Player_6.setPlayerRecord_2_Button((Button) rootView.findViewById(R.id.hockeyTeam_2_Player_6_Record_2_Button));
-
-
         ArrayList<Player> Team_2_Players = new ArrayList<>();
         Team_2_Players.add(Team_2_Player_1);
         Team_2_Players.add(Team_2_Player_2);
         Team_2_Players.add(Team_2_Player_3);
         Team_2_Players.add(Team_2_Player_4);
         Team_2_Players.add(Team_2_Player_5);
-        Team_2_Players.add(Team_2_Player_6);
 
         Team_2.setPlayers(Team_2_Players);
 
@@ -154,19 +149,30 @@ public class HockeyFragment extends Fragment {
         final Button showHideButton = rootView.findViewById(R.id.hockeyShowHidePlayersButton);
         Button resetButton = rootView.findViewById(R.id.hockeyResetButton);
 
+        // Players linear layout
+        final LinearLayout playersLinearLayout = rootView.findViewById(R.id.hockeyPlayersLinearLayout);
+        playersLinearLayout.setVisibility(View.GONE);
+
         final ArrayList<Button> Team_1_Buttons = new ArrayList<>();
-        Team_1_Buttons.add(Team_1.getGoalCountButton());
-        Team_1_Buttons.add(Team_1.getPenaltyCountButton());
-        Team_1_Buttons.add(Team_1.getPlayerRemovalCountButton());
-        Team_1_Buttons.add(Team_1.getBodyCheckCountButton());
-        Team_1_Buttons.add(Team_1.getBlockCountButton());
+        Team_1_Buttons.add(Team_1.getStatistic_1_Button());
+        Team_1_Buttons.add(Team_1.getStatistic_2_Button());
+        Team_1_Buttons.add(Team_1.getStatistic_3_Button());
 
         final ArrayList<Button> Team_2_Buttons = new ArrayList<>();
-        Team_2_Buttons.add(Team_2.getGoalCountButton());
-        Team_2_Buttons.add(Team_2.getPenaltyCountButton());
-        Team_2_Buttons.add(Team_2.getPlayerRemovalCountButton());
-        Team_2_Buttons.add(Team_2.getBodyCheckCountButton());
-        Team_2_Buttons.add(Team_2.getBlockCountButton());
+        Team_2_Buttons.add(Team_2.getStatistic_1_Button());
+        Team_2_Buttons.add(Team_2.getStatistic_2_Button());
+        Team_2_Buttons.add(Team_2.getStatistic_3_Button());
+
+        TextView textView;
+        if (savedInstanceState != null) {
+            for (String key : savedInstanceState.keySet()) {
+                if (!key.equals("android:view_state") && !key.equals("android:user_visible_hint")) {
+                    savedValues.put(key, savedInstanceState.getString(key));
+                    textView = rootView.findViewById(Integer.parseInt(key));
+                    textView.setText(savedInstanceState.getString(key));
+                }
+            }
+        }
 
         // Defining onClickListeners
         View.OnClickListener plusOneOnClickListener = new View.OnClickListener() {
@@ -174,19 +180,23 @@ public class HockeyFragment extends Fragment {
             public void onClick(View view) {
                 TextView countTextView = rootView.findViewById(view.getNextFocusForwardId());
                 int count = Integer.parseInt(countTextView.getText().toString());
-                countTextView.setText("" + ++count);
+                count++;
+                countTextView.setText(String.valueOf(count));
+                savedValues.put(String.valueOf(view.getNextFocusForwardId()), (String.valueOf(count)));
 
                 if (view.getId() == R.id.hockeyTeam_1_GoalButton) {
                     TextView hockeyTeam_1_ScoreTextView = rootView.findViewById(R.id.hockeyTeam_1_Score);
                     int score = Integer.parseInt(hockeyTeam_1_ScoreTextView.getText().toString());
                     score++;
-                    hockeyTeam_1_ScoreTextView.setText("" + score);
+                    hockeyTeam_1_ScoreTextView.setText(String.valueOf(score));
+                    savedValues.put(String.valueOf(hockeyTeam_1_ScoreTextView.getId()), (String.valueOf(score)));
                 }
                 if (view.getId() == R.id.hockeyTeam_2_GoalButton) {
                     TextView hockeyTeam_2_ScoreTextView = rootView.findViewById(R.id.hockeyTeam_2_Score);
                     int score = Integer.parseInt(hockeyTeam_2_ScoreTextView.getText().toString());
                     score++;
-                    hockeyTeam_2_ScoreTextView.setText("" + score);
+                    hockeyTeam_2_ScoreTextView.setText(String.valueOf(score));
+                    savedValues.put(String.valueOf(hockeyTeam_2_ScoreTextView.getId()), (String.valueOf(score)));
                 }
             }
         };
@@ -206,27 +216,12 @@ public class HockeyFragment extends Fragment {
         View.OnClickListener showHideAllOnClickListener = new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                for (Player player : Team_1.getPlayers()) {
-                    if (player.getPlayerButton().getVisibility() == View.GONE) {
-                        showHideButton.setText(R.string.hide_players);
-                        player.getPlayerButton().setVisibility(View.VISIBLE);
-                    } else {
-                        showHideButton.setText(R.string.show_players);
-                        player.getPlayerButton().setVisibility(View.GONE);
-                        rootView.findViewById(player.getPlayerButton().getNextFocusForwardId())
-                                .setVisibility(View.GONE);
-                    }
-                }
-
-                for (Player player : Team_2.getPlayers()) {
-                    if (player.getPlayerButton().getVisibility() == View.GONE) {
-                        showHideButton.setText(R.string.hide_players);
-                        player.getPlayerButton().setVisibility(View.VISIBLE);
-                    } else {
-                        showHideButton.setText(R.string.show_players);
-                        player.getPlayerButton().setVisibility(View.GONE);
-                        rootView.findViewById(player.getPlayerButton().getNextFocusForwardId()).setVisibility(View.GONE);
-                    }
+                if (playersLinearLayout.getVisibility() == View.GONE) {
+                    showHideButton.setText(R.string.hide_players);
+                    playersLinearLayout.setVisibility(View.VISIBLE);
+                } else {
+                    showHideButton.setText(R.string.show_players);
+                    playersLinearLayout.setVisibility(View.GONE);
                 }
             }
         };
@@ -263,6 +258,7 @@ public class HockeyFragment extends Fragment {
                 scoreTextView.setText("0");
                 scoreTextView = rootView.findViewById(R.id.hockeyTeam_2_Score);
                 scoreTextView.setText("0");
+                savedValues.clear();
             }
         };
 
@@ -308,5 +304,24 @@ public class HockeyFragment extends Fragment {
         resetButton.setOnClickListener(resetOnClickListener);
 
         return rootView;
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        TextView textView;
+        for (String key : savedValues.keySet()) {
+            savedValues.put(key, savedValues.get(key));
+            textView = rootView.findViewById(Integer.parseInt(key));
+            textView.setText(savedValues.get(key));
+        }
+    }
+
+    @Override
+    public void onSaveInstanceState(Bundle outState) {
+        super.onSaveInstanceState(outState);
+        for (String key : savedValues.keySet()) {
+            outState.putString(key, savedValues.get(key));
+        }
     }
 }

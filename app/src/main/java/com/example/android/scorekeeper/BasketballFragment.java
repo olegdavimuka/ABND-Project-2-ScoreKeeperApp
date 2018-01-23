@@ -1,6 +1,7 @@
 package com.example.android.scorekeeper;
 
 import android.os.Bundle;
+import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -10,31 +11,42 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 
 public class BasketballFragment extends Fragment {
+
+    HashMap<String, String> savedValues = new HashMap<>();
+
+    private View rootView;
 
     public BasketballFragment() {
         // Required empty public constructor
     }
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
+    public void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        if (savedInstanceState != null) {
+            for (String key : savedInstanceState.keySet()) {
+                if (!key.equals("android:view_state") && !key.equals("android:user_visible_hint")) {
+                    savedValues.put(key, savedInstanceState.getString(key));
+                }
+            }
+        }
+    }
 
-        final View rootView = inflater.inflate(R.layout.basketball_layout, container, false);
+    @Override
+    public View onCreateView(LayoutInflater inflater, final ViewGroup container,
+                             Bundle savedInstanceState) {
+        rootView = inflater.inflate(R.layout.basketball_layout, container, false);
 
         // Team_1 team
         final BasketballTeam Team_1 = new BasketballTeam(getString(R.string.basketball_team_1), 0,
-                0, 0, 0, 0,
                 0, 0, 0);
 
-        Team_1.setOnePointThrowsCountButton((Button) rootView.findViewById(R.id.basketballTeam_1_OnePointButton));
-        Team_1.setTwoPointsThrowsCountButton((Button) rootView.findViewById(R.id.basketballTeam_1_TwoPointsButton));
-        Team_1.setThreePointsThrowsCountButton((Button) rootView.findViewById(R.id.basketballTeam_1_ThreePointsButton));
-        Team_1.setBlockadesCountButton((Button) rootView.findViewById(R.id.basketballTeam_1_BlockadeButton));
-        Team_1.setInterceptionsCountButton((Button) rootView.findViewById(R.id.basketballTeam_1_InterceptionButton));
-        Team_1.setFoulsCountButton((Button) rootView.findViewById(R.id.basketballTeam_1_FoulButton));
-        Team_1.setBallPicksCountButton((Button) rootView.findViewById(R.id.basketballTeam_1_BallPickButton));
+        Team_1.setStatistic_1_Button((Button) rootView.findViewById(R.id.basketballTeam_1_OnePointButton));
+        Team_1.setStatistic_2_Button((Button) rootView.findViewById(R.id.basketballTeam_1_TwoPointsButton));
+        Team_1.setStatistic_3_Button((Button) rootView.findViewById(R.id.basketballTeam_1_ThreePointsButton));
 
         // Team_1 players
         Player Team_1_Player_1 = new Player(Team_1.getName(),
@@ -72,83 +84,22 @@ public class BasketballFragment extends Fragment {
         Team_1_Player_5.setPlayerRecord_1_Button((Button) rootView.findViewById(R.id.basketballTeam_1_Player_5_Record_1_Button));
         Team_1_Player_5.setPlayerRecord_2_Button((Button) rootView.findViewById(R.id.basketballTeam_1_Player_5_Record_2_Button));
 
-        Player Team_1_Player_6 = new Player(Team_1.getName(),
-                getString(R.string.basketball_team_1_player_6), 0, 0);
-
-        Team_1_Player_6.setPlayerButton((Button) rootView.findViewById(R.id.basketballTeam_1_Player_6_Button));
-        Team_1_Player_6.setPlayerRecord_1_Button((Button) rootView.findViewById(R.id.basketballTeam_1_Player_6_Record_1_Button));
-        Team_1_Player_6.setPlayerRecord_2_Button((Button) rootView.findViewById(R.id.basketballTeam_1_Player_6_Record_2_Button));
-
-        Player Team_1_Player_7 = new Player(Team_1.getName(),
-                getString(R.string.basketball_team_1_player_7), 0, 0);
-
-        Team_1_Player_7.setPlayerButton((Button) rootView.findViewById(R.id.basketballTeam_1_Player_7_Button));
-        Team_1_Player_7.setPlayerRecord_1_Button((Button) rootView.findViewById(R.id.basketballTeam_1_Player_7_Record_1_Button));
-        Team_1_Player_7.setPlayerRecord_2_Button((Button) rootView.findViewById(R.id.basketballTeam_1_Player_7_Record_2_Button));
-
-        Player Team_1_Player_8 = new Player(Team_1.getName(),
-                getString(R.string.basketball_team_1_player_8), 0, 0);
-
-        Team_1_Player_8.setPlayerButton((Button) rootView.findViewById(R.id.basketballTeam_1_Player_8_Button));
-        Team_1_Player_8.setPlayerRecord_1_Button((Button) rootView.findViewById(R.id.basketballTeam_1_Player_8_Record_1_Button));
-        Team_1_Player_8.setPlayerRecord_2_Button((Button) rootView.findViewById(R.id.basketballTeam_1_Player_8_Record_2_Button));
-
-        Player Team_1_Player_9 = new Player(Team_1.getName(),
-                getString(R.string.basketball_team_1_player_9), 0, 0);
-
-        Team_1_Player_9.setPlayerButton((Button) rootView.findViewById(R.id.basketballTeam_1_Player_9_Button));
-        Team_1_Player_9.setPlayerRecord_1_Button((Button) rootView.findViewById(R.id.basketballTeam_1_Player_9_Record_1_Button));
-        Team_1_Player_9.setPlayerRecord_2_Button((Button) rootView.findViewById(R.id.basketballTeam_1_Player_9_Record_2_Button));
-
-        Player Team_1_Player_10 = new Player(Team_1.getName(),
-                getString(R.string.basketball_team_1_player_10), 0, 0);
-
-        Team_1_Player_10.setPlayerButton((Button) rootView.findViewById(R.id.basketballTeam_1_Player_10_Button));
-        Team_1_Player_10.setPlayerRecord_1_Button((Button) rootView.findViewById(R.id.basketballTeam_1_Player_10_Record_1_Button));
-        Team_1_Player_10.setPlayerRecord_2_Button((Button) rootView.findViewById(R.id.basketballTeam_1_Player_10_Record_2_Button));
-
-        Player Team_1_Player_11 = new Player(Team_1.getName(),
-                getString(R.string.basketball_team_1_player_11), 0, 0);
-
-        Team_1_Player_11.setPlayerButton((Button) rootView.findViewById(R.id.basketballTeam_1_Player_11_Button));
-        Team_1_Player_11.setPlayerRecord_1_Button((Button) rootView.findViewById(R.id.basketballTeam_1_Player_11_Record_1_Button));
-        Team_1_Player_11.setPlayerRecord_2_Button((Button) rootView.findViewById(R.id.basketballTeam_1_Player_11_Record_2_Button));
-
-        Player Team_1_Player_12 = new Player(Team_1.getName(),
-                getString(R.string.basketball_team_1_player_12), 0, 0);
-
-        Team_1_Player_12.setPlayerButton((Button) rootView.findViewById(R.id.basketballTeam_1_Player_12_Button));
-        Team_1_Player_12.setPlayerRecord_1_Button((Button) rootView.findViewById(R.id.basketballTeam_1_Player_12_Record_1_Button));
-        Team_1_Player_12.setPlayerRecord_2_Button((Button) rootView.findViewById(R.id.basketballTeam_1_Player_12_Record_2_Button));
-
         ArrayList<Player> Team_1_Players = new ArrayList<>();
         Team_1_Players.add(Team_1_Player_1);
         Team_1_Players.add(Team_1_Player_2);
         Team_1_Players.add(Team_1_Player_3);
         Team_1_Players.add(Team_1_Player_4);
         Team_1_Players.add(Team_1_Player_5);
-        Team_1_Players.add(Team_1_Player_6);
-        Team_1_Players.add(Team_1_Player_7);
-        Team_1_Players.add(Team_1_Player_8);
-        Team_1_Players.add(Team_1_Player_9);
-        Team_1_Players.add(Team_1_Player_10);
-        Team_1_Players.add(Team_1_Player_11);
-        Team_1_Players.add(Team_1_Player_12);
 
         Team_1.setPlayers(Team_1_Players);
 
         // Team_2 team
         final BasketballTeam Team_2 = new BasketballTeam(getString(R.string.basketball_team_2), 0,
-                0, 0, 0, 0,
                 0, 0, 0);
 
-        Team_2.setOnePointThrowsCountButton((Button) rootView.findViewById(R.id.basketballTeam_2_OnePointButton));
-        Team_2.setTwoPointsThrowsCountButton((Button) rootView.findViewById(R.id.basketballTeam_2_TwoPointsButton));
-        Team_2.setThreePointsThrowsCountButton((Button) rootView.findViewById(R.id.basketballTeam_2_ThreePointsButton));
-        Team_2.setBlockadesCountButton((Button) rootView.findViewById(R.id.basketballTeam_2_BlockadeButton));
-        Team_2.setInterceptionsCountButton((Button) rootView.findViewById(R.id.basketballTeam_2_InterceptionButton));
-        Team_2.setFoulsCountButton((Button) rootView.findViewById(R.id.basketballTeam_2_FoulButton));
-        Team_2.setBallPicksCountButton((Button) rootView.findViewById(R.id.basketballTeam_2_BallPickButton));
+        Team_2.setStatistic_1_Button((Button) rootView.findViewById(R.id.basketballTeam_2_OnePointButton));
+        Team_2.setStatistic_2_Button((Button) rootView.findViewById(R.id.basketballTeam_2_TwoPointsButton));
+        Team_2.setStatistic_3_Button((Button) rootView.findViewById(R.id.basketballTeam_2_ThreePointsButton));
 
         // Team_2 players
         Player Team_2_Player_1 = new Player(Team_2.getName(),
@@ -186,92 +137,43 @@ public class BasketballFragment extends Fragment {
         Team_2_Player_5.setPlayerRecord_1_Button((Button) rootView.findViewById(R.id.basketballTeam_2_Player_5_Record_1_Button));
         Team_2_Player_5.setPlayerRecord_2_Button((Button) rootView.findViewById(R.id.basketballTeam_2_Player_5_Record_2_Button));
 
-        Player Team_2_Player_6 = new Player(Team_2.getName(),
-                getString(R.string.basketball_team_2_player_6), 0, 0);
-
-        Team_2_Player_6.setPlayerButton((Button) rootView.findViewById(R.id.basketballTeam_2_Player_6_Button));
-        Team_2_Player_6.setPlayerRecord_1_Button((Button) rootView.findViewById(R.id.basketballTeam_2_Player_6_Record_1_Button));
-        Team_2_Player_6.setPlayerRecord_2_Button((Button) rootView.findViewById(R.id.basketballTeam_2_Player_6_Record_2_Button));
-
-        Player Team_2_Player_7 = new Player(Team_2.getName(),
-                getString(R.string.basketball_team_2_player_7), 0, 0);
-
-        Team_2_Player_7.setPlayerButton((Button) rootView.findViewById(R.id.basketballTeam_2_Player_7_Button));
-        Team_2_Player_7.setPlayerRecord_1_Button((Button) rootView.findViewById(R.id.basketballTeam_2_Player_7_Record_1_Button));
-        Team_2_Player_7.setPlayerRecord_2_Button((Button) rootView.findViewById(R.id.basketballTeam_2_Player_7_Record_2_Button));
-
-        Player Team_2_Player_8 = new Player(Team_2.getName(),
-                getString(R.string.basketball_team_2_player_8), 0, 0);
-
-        Team_2_Player_8.setPlayerButton((Button) rootView.findViewById(R.id.basketballTeam_2_Player_8_Button));
-        Team_2_Player_8.setPlayerRecord_1_Button((Button) rootView.findViewById(R.id.basketballTeam_2_Player_8_Record_1_Button));
-        Team_2_Player_8.setPlayerRecord_2_Button((Button) rootView.findViewById(R.id.basketballTeam_2_Player_8_Record_2_Button));
-
-        Player Team_2_Player_9 = new Player(Team_2.getName(),
-                getString(R.string.basketball_team_2_player_9), 0, 0);
-
-        Team_2_Player_9.setPlayerButton((Button) rootView.findViewById(R.id.basketballTeam_2_Player_9_Button));
-        Team_2_Player_9.setPlayerRecord_1_Button((Button) rootView.findViewById(R.id.basketballTeam_2_Player_9_Record_1_Button));
-        Team_2_Player_9.setPlayerRecord_2_Button((Button) rootView.findViewById(R.id.basketballTeam_2_Player_9_Record_2_Button));
-
-        Player Team_2_Player_10 = new Player(Team_2.getName(),
-                getString(R.string.basketball_team_2_player_10), 0, 0);
-
-        Team_2_Player_10.setPlayerButton((Button) rootView.findViewById(R.id.basketballTeam_2_Player_10_Button));
-        Team_2_Player_10.setPlayerRecord_1_Button((Button) rootView.findViewById(R.id.basketballTeam_2_Player_10_Record_1_Button));
-        Team_2_Player_10.setPlayerRecord_2_Button((Button) rootView.findViewById(R.id.basketballTeam_2_Player_10_Record_2_Button));
-
-        Player Team_2_Player_11 = new Player(Team_2.getName(),
-                getString(R.string.basketball_team_2_player_11), 0, 0);
-
-        Team_2_Player_11.setPlayerButton((Button) rootView.findViewById(R.id.basketballTeam_2_Player_11_Button));
-        Team_2_Player_11.setPlayerRecord_1_Button((Button) rootView.findViewById(R.id.basketballTeam_2_Player_11_Record_1_Button));
-        Team_2_Player_11.setPlayerRecord_2_Button((Button) rootView.findViewById(R.id.basketballTeam_2_Player_11_Record_2_Button));
-
-        Player Team_2_Player_12 = new Player(Team_2.getName(),
-                getString(R.string.basketball_team_2_player_12), 0, 0);
-
-        Team_2_Player_12.setPlayerButton((Button) rootView.findViewById(R.id.basketballTeam_2_Player_12_Button));
-        Team_2_Player_12.setPlayerRecord_1_Button((Button) rootView.findViewById(R.id.basketballTeam_2_Player_12_Record_1_Button));
-        Team_2_Player_12.setPlayerRecord_2_Button((Button) rootView.findViewById(R.id.basketballTeam_2_Player_12_Record_2_Button));
-
         ArrayList<Player> Team_2_Players = new ArrayList<>();
         Team_2_Players.add(Team_2_Player_1);
         Team_2_Players.add(Team_2_Player_2);
         Team_2_Players.add(Team_2_Player_3);
         Team_2_Players.add(Team_2_Player_4);
         Team_2_Players.add(Team_2_Player_5);
-        Team_2_Players.add(Team_2_Player_6);
-        Team_2_Players.add(Team_2_Player_7);
-        Team_2_Players.add(Team_2_Player_8);
-        Team_2_Players.add(Team_2_Player_9);
-        Team_2_Players.add(Team_2_Player_10);
-        Team_2_Players.add(Team_2_Player_11);
-        Team_2_Players.add(Team_2_Player_12);
 
         Team_2.setPlayers(Team_2_Players);
 
         // Show/hide players and reset buttons
         final Button showHideButton = rootView.findViewById(R.id.basketballShowHidePlayersButton);
-        Button resetButton = rootView.findViewById(R.id.basketballResetButton);
+        final Button resetButton = rootView.findViewById(R.id.basketballResetButton);
+
+        // Players linear layout
+        final LinearLayout playersLinearLayout = rootView.findViewById(R.id.basketballPlayersLinearLayout);
+        playersLinearLayout.setVisibility(View.GONE);
 
         final ArrayList<Button> Team_1_Buttons = new ArrayList<>();
-        Team_1_Buttons.add(Team_1.getOnePointThrowsCountButton());
-        Team_1_Buttons.add(Team_1.getTwoPointsThrowsCountButton());
-        Team_1_Buttons.add(Team_1.getThreePointsThrowsCountButton());
-        Team_1_Buttons.add(Team_1.getBlockadesCountButton());
-        Team_1_Buttons.add(Team_1.getInterceptionsCountButton());
-        Team_1_Buttons.add(Team_1.getFoulsCountButton());
-        Team_1_Buttons.add(Team_1.getBallPicksCountButton());
+        Team_1_Buttons.add(Team_1.getStatistic_1_Button());
+        Team_1_Buttons.add(Team_1.getStatistic_2_Button());
+        Team_1_Buttons.add(Team_1.getStatistic_3_Button());
 
         final ArrayList<Button> Team_2_Buttons = new ArrayList<>();
-        Team_2_Buttons.add(Team_2.getOnePointThrowsCountButton());
-        Team_2_Buttons.add(Team_2.getTwoPointsThrowsCountButton());
-        Team_2_Buttons.add(Team_2.getThreePointsThrowsCountButton());
-        Team_2_Buttons.add(Team_2.getBlockadesCountButton());
-        Team_2_Buttons.add(Team_2.getInterceptionsCountButton());
-        Team_2_Buttons.add(Team_2.getFoulsCountButton());
-        Team_2_Buttons.add(Team_2.getBallPicksCountButton());
+        Team_2_Buttons.add(Team_2.getStatistic_1_Button());
+        Team_2_Buttons.add(Team_2.getStatistic_2_Button());
+        Team_2_Buttons.add(Team_2.getStatistic_3_Button());
+
+        TextView textView;
+        if (savedInstanceState != null) {
+            for (String key : savedInstanceState.keySet()) {
+                if (!key.equals("android:view_state") && !key.equals("android:user_visible_hint")) {
+                    savedValues.put(key, savedInstanceState.getString(key));
+                    textView = rootView.findViewById(Integer.parseInt(key));
+                    textView.setText(savedInstanceState.getString(key));
+                }
+            }
+        }
 
         //Defining onClickListeners
         View.OnClickListener plusOneOnClickListener = new View.OnClickListener() {
@@ -280,43 +182,50 @@ public class BasketballFragment extends Fragment {
                 TextView countTextView = rootView.findViewById(view.getNextFocusForwardId());
                 int count = Integer.parseInt(countTextView.getText().toString());
                 count++;
-                countTextView.setText("" + count);
+                countTextView.setText(String.valueOf(count));
+                savedValues.put(String.valueOf(view.getNextFocusForwardId()), (String.valueOf(count)));
 
                 if (view.getId() == R.id.basketballTeam_1_OnePointButton) {
                     TextView basketballTeam_1_ScoreTextView = rootView.findViewById(R.id.basketballTeam_1_Score);
                     int score = Integer.parseInt(basketballTeam_1_ScoreTextView.getText().toString());
                     score++;
-                    basketballTeam_1_ScoreTextView.setText("" + score);
+                    basketballTeam_1_ScoreTextView.setText(String.valueOf(score));
+                    savedValues.put(String.valueOf(basketballTeam_1_ScoreTextView.getId()), (String.valueOf(score)));
                 }
                 if (view.getId() == R.id.basketballTeam_1_TwoPointsButton) {
                     TextView basketballTeam_1_ScoreTextView = rootView.findViewById(R.id.basketballTeam_1_Score);
                     int score = Integer.parseInt(basketballTeam_1_ScoreTextView.getText().toString());
                     score += 2;
-                    basketballTeam_1_ScoreTextView.setText("" + score);
+                    basketballTeam_1_ScoreTextView.setText(String.valueOf(score));
+                    savedValues.put(String.valueOf(basketballTeam_1_ScoreTextView.getId()), (String.valueOf(score)));
                 }
                 if (view.getId() == R.id.basketballTeam_1_ThreePointsButton) {
                     TextView basketballTeam_1_ScoreTextView = rootView.findViewById(R.id.basketballTeam_1_Score);
                     int score = Integer.parseInt(basketballTeam_1_ScoreTextView.getText().toString());
                     score += 3;
-                    basketballTeam_1_ScoreTextView.setText("" + score);
+                    basketballTeam_1_ScoreTextView.setText(String.valueOf(score));
+                    savedValues.put(String.valueOf(basketballTeam_1_ScoreTextView.getId()), (String.valueOf(score)));
                 }
                 if (view.getId() == R.id.basketballTeam_2_OnePointButton) {
                     TextView basketballTeam_2_ScoreTextView = rootView.findViewById(R.id.basketballTeam_2_Score);
                     int score = Integer.parseInt(basketballTeam_2_ScoreTextView.getText().toString());
                     score++;
-                    basketballTeam_2_ScoreTextView.setText("" + score);
+                    basketballTeam_2_ScoreTextView.setText(String.valueOf(score));
+                    savedValues.put(String.valueOf(basketballTeam_2_ScoreTextView.getId()), (String.valueOf(score)));
                 }
                 if (view.getId() == R.id.basketballTeam_2_TwoPointsButton) {
                     TextView basketballTeam_2_ScoreTextView = rootView.findViewById(R.id.basketballTeam_2_Score);
                     int score = Integer.parseInt(basketballTeam_2_ScoreTextView.getText().toString());
                     score += 2;
-                    basketballTeam_2_ScoreTextView.setText("" + score);
+                    basketballTeam_2_ScoreTextView.setText(String.valueOf(score));
+                    savedValues.put(String.valueOf(basketballTeam_2_ScoreTextView.getId()), (String.valueOf(score)));
                 }
                 if (view.getId() == R.id.basketballTeam_2_ThreePointsButton) {
                     TextView basketballTeam_2_ScoreTextView = rootView.findViewById(R.id.basketballTeam_2_Score);
                     int score = Integer.parseInt(basketballTeam_2_ScoreTextView.getText().toString());
                     score += 3;
-                    basketballTeam_2_ScoreTextView.setText("" + score);
+                    basketballTeam_2_ScoreTextView.setText(String.valueOf(score));
+                    savedValues.put(String.valueOf(basketballTeam_2_ScoreTextView.getId()), (String.valueOf(score)));
                 }
 
             }
@@ -337,27 +246,12 @@ public class BasketballFragment extends Fragment {
         View.OnClickListener showHideAllOnClickListener = new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                for (Player player : Team_1.getPlayers()) {
-                    if (player.getPlayerButton().getVisibility() == View.GONE) {
-                        showHideButton.setText(R.string.hide_players);
-                        player.getPlayerButton().setVisibility(View.VISIBLE);
-                    } else {
-                        showHideButton.setText(R.string.show_players);
-                        player.getPlayerButton().setVisibility(View.GONE);
-                        rootView.findViewById(player.getPlayerButton().getNextFocusForwardId())
-                                .setVisibility(View.GONE);
-                    }
-                }
-
-                for (Player player : Team_2.getPlayers()) {
-                    if (player.getPlayerButton().getVisibility() == View.GONE) {
-                        showHideButton.setText(R.string.hide_players);
-                        player.getPlayerButton().setVisibility(View.VISIBLE);
-                    } else {
-                        showHideButton.setText(R.string.show_players);
-                        player.getPlayerButton().setVisibility(View.GONE);
-                        rootView.findViewById(player.getPlayerButton().getNextFocusForwardId()).setVisibility(View.GONE);
-                    }
+                if (playersLinearLayout.getVisibility() == View.GONE) {
+                    showHideButton.setText(R.string.hide_players);
+                    playersLinearLayout.setVisibility(View.VISIBLE);
+                } else {
+                    showHideButton.setText(R.string.show_players);
+                    playersLinearLayout.setVisibility(View.GONE);
                 }
             }
         };
@@ -394,6 +288,7 @@ public class BasketballFragment extends Fragment {
                 scoreTextView.setText("0");
                 scoreTextView = rootView.findViewById(R.id.basketballTeam_2_Score);
                 scoreTextView.setText("0");
+                savedValues.clear();
             }
         };
 
@@ -439,5 +334,24 @@ public class BasketballFragment extends Fragment {
         resetButton.setOnClickListener(resetOnClickListener);
 
         return rootView;
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        TextView textView;
+        for (String key : savedValues.keySet()) {
+            savedValues.put(key, savedValues.get(key));
+            textView = rootView.findViewById(Integer.parseInt(key));
+            textView.setText(savedValues.get(key));
+        }
+    }
+
+    @Override
+    public void onSaveInstanceState(Bundle outState) {
+        super.onSaveInstanceState(outState);
+        for (String key : savedValues.keySet()) {
+            outState.putString(key, savedValues.get(key));
+        }
     }
 }

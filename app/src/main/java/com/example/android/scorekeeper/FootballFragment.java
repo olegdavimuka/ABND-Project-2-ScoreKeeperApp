@@ -1,6 +1,8 @@
 package com.example.android.scorekeeper;
 
 import android.os.Bundle;
+import android.support.annotation.Nullable;
+import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -9,30 +11,41 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 
-public class FootballFragment extends android.support.v4.app.Fragment {
+public class FootballFragment extends Fragment {
+
+    HashMap<String, String> savedValues = new HashMap<>();
+
+    private View rootView;
 
     public FootballFragment() {
         // Required empty public constructor
     }
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
+    public void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        if (savedInstanceState != null) {
+            for (String key : savedInstanceState.keySet()) {
+                if (!key.equals("android:view_state") && !key.equals("android:user_visible_hint")) {
+                    savedValues.put(key, savedInstanceState.getString(key));
+                }
+            }
+        }
+    }
 
-        final View rootView = inflater.inflate(R.layout.football_layout, container, false);
+    @Override
+    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+                             final Bundle savedInstanceState) {
+        rootView = inflater.inflate(R.layout.football_layout, container, false);
 
         // Team_1
-        final FootballTeam Team_1 = new FootballTeam(getString(R.string.football_team_1), 0, 0, 0,
-                0, 0, 0, 0);
+        final Team Team_1 = new Team(getString(R.string.football_team_1), 0, 0, 0);
 
-        Team_1.setGoalsCountButton((Button) rootView.findViewById(R.id.footballTeam_1_GoalButton));
-        Team_1.setFoulsCountButton((Button) rootView.findViewById(R.id.footballTeam_1_FoulButton));
-        Team_1.setYellowCardsCountButton((Button) rootView.findViewById(R.id.footballTeam_1_YellowCardButton));
-        Team_1.setRedCardsCountButton((Button) rootView.findViewById(R.id.footballTeam_1_RedCardButton));
-        Team_1.setOffsidesCountButton((Button) rootView.findViewById(R.id.footballTeam_1_OffsideButton));
-        Team_1.setCornerKicksCountButton((Button) rootView.findViewById(R.id.footballTeam_1_CornerKickButton));
-        Team_1.setSavesCountButton((Button) rootView.findViewById(R.id.footballTeam_1_SaveButton));
+        Team_1.setStatistic_1_Button((Button) rootView.findViewById(R.id.footballTeam_1_GoalButton));
+        Team_1.setStatistic_2_Button((Button) rootView.findViewById(R.id.footballTeam_1_FoulButton));
+        Team_1.setStatistic_3_Button((Button) rootView.findViewById(R.id.footballTeam_1_SaveButton));
 
         // Team_1 players
         Player Team_1_Player_1 = new Player(Team_1.getName(),
@@ -70,74 +83,21 @@ public class FootballFragment extends android.support.v4.app.Fragment {
         Team_1_Player_5.setPlayerRecord_1_Button((Button) rootView.findViewById(R.id.footballTeam_1_Player_5_Record_1_Button));
         Team_1_Player_5.setPlayerRecord_2_Button((Button) rootView.findViewById(R.id.footballTeam_1_Player_5_Record_2_Button));
 
-        Player Team_1_Player_6 = new Player(Team_1.getName(),
-                getString(R.string.football_team_1_player_6), 0, 0);
-
-        Team_1_Player_6.setPlayerButton((Button) rootView.findViewById(R.id.footballTeam_1_Player_6_Button));
-        Team_1_Player_6.setPlayerRecord_1_Button((Button) rootView.findViewById(R.id.footballTeam_1_Player_6_Record_1_Button));
-        Team_1_Player_6.setPlayerRecord_2_Button((Button) rootView.findViewById(R.id.footballTeam_1_Player_6_Record_2_Button));
-
-        Player Team_1_Player_7 = new Player(Team_1.getName(),
-                getString(R.string.football_team_1_player_7), 0, 0);
-
-        Team_1_Player_7.setPlayerButton((Button) rootView.findViewById(R.id.footballTeam_1_Player_7_Button));
-        Team_1_Player_7.setPlayerRecord_1_Button((Button) rootView.findViewById(R.id.footballTeam_1_Player_7_Record_1_Button));
-        Team_1_Player_7.setPlayerRecord_2_Button((Button) rootView.findViewById(R.id.footballTeam_1_Player_7_Record_2_Button));
-
-        Player Team_1_Player_8 = new Player(Team_1.getName(),
-                getString(R.string.football_team_1_player_8), 0, 0);
-
-        Team_1_Player_8.setPlayerButton((Button) rootView.findViewById(R.id.footballTeam_1_Player_8_Button));
-        Team_1_Player_8.setPlayerRecord_1_Button((Button) rootView.findViewById(R.id.footballTeam_1_Player_8_Record_1_Button));
-        Team_1_Player_8.setPlayerRecord_2_Button((Button) rootView.findViewById(R.id.footballTeam_1_Player_8_Record_2_Button));
-
-        Player Team_1_Player_9 = new Player(Team_1.getName(),
-                getString(R.string.football_team_1_player_9), 0, 0);
-
-        Team_1_Player_9.setPlayerButton((Button) rootView.findViewById(R.id.footballTeam_1_Player_9_Button));
-        Team_1_Player_9.setPlayerRecord_1_Button((Button) rootView.findViewById(R.id.footballTeam_1_Player_9_Record_1_Button));
-        Team_1_Player_9.setPlayerRecord_2_Button((Button) rootView.findViewById(R.id.footballTeam_1_Player_9_Record_2_Button));
-
-        Player Team_1_Player_10 = new Player(Team_1.getName(),
-                getString(R.string.football_team_1_player_10), 0, 0);
-
-        Team_1_Player_10.setPlayerButton((Button) rootView.findViewById(R.id.footballTeam_1_Player_10_Button));
-        Team_1_Player_10.setPlayerRecord_1_Button((Button) rootView.findViewById(R.id.footballTeam_1_Player_10_Record_1_Button));
-        Team_1_Player_10.setPlayerRecord_2_Button((Button) rootView.findViewById(R.id.footballTeam_1_Player_10_Record_2_Button));
-
-        Player Team_1_Player_11 = new Player(Team_1.getName(),
-                getString(R.string.football_team_1_player_11), 0, 0);
-
-        Team_1_Player_11.setPlayerButton((Button) rootView.findViewById(R.id.footballTeam_1_Player_11_Button));
-        Team_1_Player_11.setPlayerRecord_1_Button((Button) rootView.findViewById(R.id.footballTeam_1_Player_11_Record_1_Button));
-        Team_1_Player_11.setPlayerRecord_2_Button((Button) rootView.findViewById(R.id.footballTeam_1_Player_11_Record_2_Button));
-
         ArrayList<Player> Team_1_Players = new ArrayList<>();
         Team_1_Players.add(Team_1_Player_1);
         Team_1_Players.add(Team_1_Player_2);
         Team_1_Players.add(Team_1_Player_3);
         Team_1_Players.add(Team_1_Player_4);
         Team_1_Players.add(Team_1_Player_5);
-        Team_1_Players.add(Team_1_Player_6);
-        Team_1_Players.add(Team_1_Player_7);
-        Team_1_Players.add(Team_1_Player_8);
-        Team_1_Players.add(Team_1_Player_9);
-        Team_1_Players.add(Team_1_Player_10);
-        Team_1_Players.add(Team_1_Player_11);
 
         Team_1.setPlayers(Team_1_Players);
 
         // Team_2
-        final FootballTeam Team_2 = new FootballTeam(getString(R.string.football_team_1), 0, 0, 0,
-                0, 0, 0, 0);
+        final Team Team_2 = new Team(getString(R.string.football_team_1), 0, 0, 0);
 
-        Team_2.setGoalsCountButton((Button) rootView.findViewById(R.id.footballTeam_2_GoalButton));
-        Team_2.setFoulsCountButton((Button) rootView.findViewById(R.id.footballTeam_2_FoulButton));
-        Team_2.setYellowCardsCountButton((Button) rootView.findViewById(R.id.footballTeam_2_YellowCardButton));
-        Team_2.setRedCardsCountButton((Button) rootView.findViewById(R.id.footballTeam_2_RedCardButton));
-        Team_2.setOffsidesCountButton((Button) rootView.findViewById(R.id.footballTeam_2_OffsideButton));
-        Team_2.setCornerKicksCountButton((Button) rootView.findViewById(R.id.footballTeam_2_CornerKickButton));
-        Team_2.setSavesCountButton((Button) rootView.findViewById(R.id.footballTeam_2_SaveButton));
+        Team_2.setStatistic_1_Button((Button) rootView.findViewById(R.id.footballTeam_2_GoalButton));
+        Team_2.setStatistic_2_Button((Button) rootView.findViewById(R.id.footballTeam_2_FoulButton));
+        Team_2.setStatistic_3_Button((Button) rootView.findViewById(R.id.footballTeam_2_SaveButton));
 
         // Team_2 players
         Player Team_2_Player_1 = new Player(Team_2.getName(),
@@ -175,60 +135,12 @@ public class FootballFragment extends android.support.v4.app.Fragment {
         Team_2_Player_5.setPlayerRecord_1_Button((Button) rootView.findViewById(R.id.footballTeam_2_Player_5_Record_1_Button));
         Team_2_Player_5.setPlayerRecord_2_Button((Button) rootView.findViewById(R.id.footballTeam_2_Player_5_Record_2_Button));
 
-        Player Team_2_Player_6 = new Player(Team_2.getName(),
-                getString(R.string.football_team_2_player_6), 0, 0);
-
-        Team_2_Player_6.setPlayerButton((Button) rootView.findViewById(R.id.footballTeam_2_Player_6_Button));
-        Team_2_Player_6.setPlayerRecord_1_Button((Button) rootView.findViewById(R.id.footballTeam_2_Player_6_Record_1_Button));
-        Team_2_Player_6.setPlayerRecord_2_Button((Button) rootView.findViewById(R.id.footballTeam_2_Player_6_Record_2_Button));
-
-        Player Team_2_Player_7 = new Player(Team_2.getName(),
-                getString(R.string.football_team_2_player_7), 0, 0);
-
-        Team_2_Player_7.setPlayerButton((Button) rootView.findViewById(R.id.footballTeam_2_Player_7_Button));
-        Team_2_Player_7.setPlayerRecord_1_Button((Button) rootView.findViewById(R.id.footballTeam_2_Player_7_Record_1_Button));
-        Team_2_Player_7.setPlayerRecord_2_Button((Button) rootView.findViewById(R.id.footballTeam_2_Player_7_Record_2_Button));
-
-        Player Team_2_Player_8 = new Player(Team_2.getName(),
-                getString(R.string.football_team_2_player_8), 0, 0);
-
-        Team_2_Player_8.setPlayerButton((Button) rootView.findViewById(R.id.footballTeam_2_Player_8_Button));
-        Team_2_Player_8.setPlayerRecord_1_Button((Button) rootView.findViewById(R.id.footballTeam_2_Player_8_Record_1_Button));
-        Team_2_Player_8.setPlayerRecord_2_Button((Button) rootView.findViewById(R.id.footballTeam_2_Player_8_Record_2_Button));
-
-        Player Team_2_Player_9 = new Player(Team_2.getName(),
-                getString(R.string.football_team_2_player_9), 0, 0);
-
-        Team_2_Player_9.setPlayerButton((Button) rootView.findViewById(R.id.footballTeam_2_Player_9_Button));
-        Team_2_Player_9.setPlayerRecord_1_Button((Button) rootView.findViewById(R.id.footballTeam_2_Player_9_Record_1_Button));
-        Team_2_Player_9.setPlayerRecord_2_Button((Button) rootView.findViewById(R.id.footballTeam_2_Player_9_Record_2_Button));
-
-        Player Team_2_Player_10 = new Player(Team_2.getName(),
-                getString(R.string.football_team_2_player_10), 0, 0);
-
-        Team_2_Player_10.setPlayerButton((Button) rootView.findViewById(R.id.footballTeam_2_Player_10_Button));
-        Team_2_Player_10.setPlayerRecord_1_Button((Button) rootView.findViewById(R.id.footballTeam_2_Player_10_Record_1_Button));
-        Team_2_Player_10.setPlayerRecord_2_Button((Button) rootView.findViewById(R.id.footballTeam_2_Player_10_Record_2_Button));
-
-        Player Team_2_Player_11 = new Player(Team_2.getName(),
-                getString(R.string.football_team_2_player_11), 0, 0);
-
-        Team_2_Player_11.setPlayerButton((Button) rootView.findViewById(R.id.footballTeam_2_Player_11_Button));
-        Team_2_Player_11.setPlayerRecord_1_Button((Button) rootView.findViewById(R.id.footballTeam_2_Player_11_Record_1_Button));
-        Team_2_Player_11.setPlayerRecord_2_Button((Button) rootView.findViewById(R.id.footballTeam_2_Player_11_Record_2_Button));
-
         ArrayList<Player> Team_2_Players = new ArrayList<>();
         Team_2_Players.add(Team_2_Player_1);
         Team_2_Players.add(Team_2_Player_2);
         Team_2_Players.add(Team_2_Player_3);
         Team_2_Players.add(Team_2_Player_4);
         Team_2_Players.add(Team_2_Player_5);
-        Team_2_Players.add(Team_2_Player_6);
-        Team_2_Players.add(Team_2_Player_7);
-        Team_2_Players.add(Team_2_Player_8);
-        Team_2_Players.add(Team_2_Player_9);
-        Team_2_Players.add(Team_2_Player_10);
-        Team_2_Players.add(Team_2_Player_11);
 
         Team_2.setPlayers(Team_2_Players);
 
@@ -236,23 +148,30 @@ public class FootballFragment extends android.support.v4.app.Fragment {
         final Button showHideButton = rootView.findViewById(R.id.footballShowHidePlayersButton);
         Button resetButton = rootView.findViewById(R.id.footballResetButton);
 
+        // Players linear layout
+        final LinearLayout playersLinearLayout = rootView.findViewById(R.id.footballPlayersLinearLayout);
+        playersLinearLayout.setVisibility(View.GONE);
+
         final ArrayList<Button> Team_1_Buttons = new ArrayList<>();
-        Team_1_Buttons.add(Team_1.getGoalsCountButton());
-        Team_1_Buttons.add(Team_1.getFoulsCountButton());
-        Team_1_Buttons.add(Team_1.getYellowCardsCountButton());
-        Team_1_Buttons.add(Team_1.getRedCardsCountButton());
-        Team_1_Buttons.add(Team_1.getOffsidesCountButton());
-        Team_1_Buttons.add(Team_1.getCornerKicksCountButton());
-        Team_1_Buttons.add(Team_1.getSavesCountButton());
+        Team_1_Buttons.add(Team_1.getStatistic_1_Button());
+        Team_1_Buttons.add(Team_1.getStatistic_2_Button());
+        Team_1_Buttons.add(Team_1.getStatistic_3_Button());
 
         final ArrayList<Button> Team_2_Buttons = new ArrayList<>();
-        Team_2_Buttons.add(Team_2.getGoalsCountButton());
-        Team_2_Buttons.add(Team_2.getFoulsCountButton());
-        Team_2_Buttons.add(Team_2.getYellowCardsCountButton());
-        Team_2_Buttons.add(Team_2.getRedCardsCountButton());
-        Team_2_Buttons.add(Team_2.getOffsidesCountButton());
-        Team_2_Buttons.add(Team_2.getCornerKicksCountButton());
-        Team_2_Buttons.add(Team_2.getSavesCountButton());
+        Team_2_Buttons.add(Team_2.getStatistic_1_Button());
+        Team_2_Buttons.add(Team_2.getStatistic_2_Button());
+        Team_2_Buttons.add(Team_2.getStatistic_3_Button());
+
+        TextView textView;
+        if (savedInstanceState != null) {
+            for (String key : savedInstanceState.keySet()) {
+                if (!key.equals("android:view_state") && !key.equals("android:user_visible_hint")) {
+                    savedValues.put(key, savedInstanceState.getString(key));
+                    textView = rootView.findViewById(Integer.parseInt(key));
+                    textView.setText(savedInstanceState.getString(key));
+                }
+            }
+        }
 
         // Defining onClickListeners
         View.OnClickListener plusOneOnClickListener = new View.OnClickListener() {
@@ -261,19 +180,22 @@ public class FootballFragment extends android.support.v4.app.Fragment {
                 TextView countTextView = rootView.findViewById(view.getNextFocusForwardId());
                 int count = Integer.parseInt(countTextView.getText().toString());
                 count++;
-                countTextView.setText("" + count);
+                countTextView.setText(String.valueOf(count));
+                savedValues.put(String.valueOf(view.getNextFocusForwardId()), (String.valueOf(count)));
 
                 if (view.getId() == R.id.footballTeam_1_GoalButton) {
                     TextView footballTeam_1_ScoreTextView = rootView.findViewById(R.id.footballTeam_1_Score);
                     int score = Integer.parseInt(footballTeam_1_ScoreTextView.getText().toString());
                     score++;
-                    footballTeam_1_ScoreTextView.setText("" + score);
+                    footballTeam_1_ScoreTextView.setText(String.valueOf(score));
+                    savedValues.put(String.valueOf(footballTeam_1_ScoreTextView.getId()), (String.valueOf(score)));
                 }
                 if (view.getId() == R.id.footballTeam_2_GoalButton) {
                     TextView footballTeam_2_ScoreTextView = rootView.findViewById(R.id.footballTeam_2_Score);
                     int score = Integer.parseInt(footballTeam_2_ScoreTextView.getText().toString());
                     score++;
-                    footballTeam_2_ScoreTextView.setText("" + score);
+                    footballTeam_2_ScoreTextView.setText(String.valueOf(score));
+                    savedValues.put(String.valueOf(footballTeam_2_ScoreTextView.getId()), (String.valueOf(score)));
                 }
             }
         };
@@ -293,27 +215,12 @@ public class FootballFragment extends android.support.v4.app.Fragment {
         View.OnClickListener showHideAllOnClickListener = new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                for (Player player : Team_1.getPlayers()) {
-                    if (player.getPlayerButton().getVisibility() == View.GONE) {
-                        showHideButton.setText(R.string.hide_players);
-                        player.getPlayerButton().setVisibility(View.VISIBLE);
-                    } else {
-                        showHideButton.setText(R.string.show_players);
-                        player.getPlayerButton().setVisibility(View.GONE);
-                        rootView.findViewById(player.getPlayerButton().getNextFocusForwardId())
-                                .setVisibility(View.GONE);
-                    }
-                }
-
-                for (Player player : Team_2.getPlayers()) {
-                    if (player.getPlayerButton().getVisibility() == View.GONE) {
-                        showHideButton.setText(R.string.hide_players);
-                        player.getPlayerButton().setVisibility(View.VISIBLE);
-                    } else {
-                        showHideButton.setText(R.string.show_players);
-                        player.getPlayerButton().setVisibility(View.GONE);
-                        rootView.findViewById(player.getPlayerButton().getNextFocusForwardId()).setVisibility(View.GONE);
-                    }
+                if (playersLinearLayout.getVisibility() == View.GONE) {
+                    showHideButton.setText(R.string.hide_players);
+                    playersLinearLayout.setVisibility(View.VISIBLE);
+                } else {
+                    showHideButton.setText(R.string.show_players);
+                    playersLinearLayout.setVisibility(View.GONE);
                 }
             }
         };
@@ -349,6 +256,7 @@ public class FootballFragment extends android.support.v4.app.Fragment {
                 scoreTextView.setText("0");
                 scoreTextView = rootView.findViewById(R.id.footballTeam_2_Score);
                 scoreTextView.setText("0");
+                savedValues.clear();
             }
         };
 
@@ -394,5 +302,24 @@ public class FootballFragment extends android.support.v4.app.Fragment {
         resetButton.setOnClickListener(resetOnClickListener);
 
         return rootView;
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        TextView textView;
+        for (String key : savedValues.keySet()) {
+            savedValues.put(key, savedValues.get(key));
+            textView = rootView.findViewById(Integer.parseInt(key));
+            textView.setText(savedValues.get(key));
+        }
+    }
+
+    @Override
+    public void onSaveInstanceState(Bundle outState) {
+        super.onSaveInstanceState(outState);
+        for (String key : savedValues.keySet()) {
+            outState.putString(key, savedValues.get(key));
+        }
     }
 }

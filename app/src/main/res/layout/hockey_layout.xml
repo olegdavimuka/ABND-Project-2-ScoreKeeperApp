@@ -12,13 +12,8 @@
         tools:context="com.example.android.scorekeeper.MainActivity">
 
         <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:text="@string/hockey"
-            android:textColor="@android:color/black"
-            android:textSize="30sp"
-            android:textStyle="italic|bold" />
+            style="@style/sportName"
+            android:text="@string/hockey" />
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -42,24 +37,20 @@
                 android:id="@+id/hockeyTeam_1_Score"
                 style="@style/TeamAndTeamScoreTextView"
                 android:text="@string/zero"
-                android:textSize="48sp" />
+                android:textSize="@dimen/team_score_text_size" />
 
             <TextView
                 android:id="@+id/hockeyTeam_2_Score"
                 style="@style/TeamAndTeamScoreTextView"
                 android:text="@string/zero"
-                android:textSize="48sp" />
+                android:textSize="@dimen/team_score_text_size" />
         </LinearLayout>
 
-        <LinearLayout
-            android:id="@+id/hockeyGoalLinearLayout"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+        <LinearLayout style="@style/TeamStatisticsLinearLayout">
 
             <Button
                 android:id="@+id/hockeyTeam_1_GoalButton"
                 style="@style/TeamButton"
-                android:layout_marginStart="8dp"
                 android:nextFocusForward="@id/hockeyTeam_1_GoalTextView" />
 
             <TextView
@@ -79,20 +70,15 @@
             <Button
                 android:id="@+id/hockeyTeam_2_GoalButton"
                 style="@style/TeamButton"
-                android:layout_marginEnd="8dp"
                 android:nextFocusForward="@id/hockeyTeam_2_GoalTextView" />
 
         </LinearLayout>
 
-        <LinearLayout
-            android:id="@+id/hockeyPenaltyLinearLayout"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+        <LinearLayout style="@style/TeamStatisticsLinearLayout">
 
             <Button
                 android:id="@+id/hockeyTeam_1_PenaltyButton"
                 style="@style/TeamButton"
-                android:layout_marginStart="8dp"
                 android:nextFocusForward="@id/hockeyTeam_1_PenaltyTextView" />
 
             <TextView
@@ -112,53 +98,15 @@
             <Button
                 android:id="@+id/hockeyTeam_2_PenaltyButton"
                 style="@style/TeamButton"
-                android:layout_marginEnd="8dp"
                 android:nextFocusForward="@id/hockeyTeam_2_PenaltyTextView" />
 
         </LinearLayout>
 
-        <LinearLayout
-            android:id="@+id/hockeyPlayerRemovalLinearLayout"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-
-            <Button
-                android:id="@+id/hockeyTeam_1_PlayerRemovalButton"
-                style="@style/TeamButton"
-                android:layout_marginStart="8dp"
-                android:nextFocusForward="@id/hockeyTeam_1_PlayerRemovalTextView" />
-
-            <TextView
-                android:id="@+id/hockeyTeam_1_PlayerRemovalTextView"
-                style="@style/TeamTextView" />
-
-            <ImageView
-                android:id="@+id/hockeyPlayerRemovalImageView"
-                style="@style/TeamImage"
-                android:contentDescription="@string/hockey_player_removal_image_description"
-                android:src="@drawable/hockey_player_removal" />
-
-            <TextView
-                android:id="@+id/hockeyTeam_2_PlayerRemovalTextView"
-                style="@style/TeamTextView" />
-
-            <Button
-                android:id="@+id/hockeyTeam_2_PlayerRemovalButton"
-                style="@style/TeamButton"
-                android:layout_marginEnd="8dp"
-                android:nextFocusForward="@id/hockeyTeam_2_PlayerRemovalTextView" />
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:id="@+id/hockeyBodyCheckLinearLayout"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+        <LinearLayout style="@style/TeamStatisticsLinearLayout">
 
             <Button
                 android:id="@+id/hockeyTeam_1_BodyCheckButton"
                 style="@style/TeamButton"
-                android:layout_marginStart="8dp"
                 android:nextFocusForward="@id/hockeyTeam_1_BodyCheckTextView" />
 
             <TextView
@@ -178,60 +126,23 @@
             <Button
                 android:id="@+id/hockeyTeam_2_BodyCheckButton"
                 style="@style/TeamButton"
-                android:layout_marginEnd="8dp"
                 android:nextFocusForward="@id/hockeyTeam_2_BodyCheckTextView" />
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:id="@+id/hockeyBlockLinearLayout"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-
-            <Button
-                android:id="@+id/hockeyTeam_1_BlockButton"
-                style="@style/TeamButton"
-                android:layout_marginStart="8dp"
-                android:nextFocusForward="@id/hockeyTeam_1_BlockTextView" />
-
-            <TextView
-                android:id="@+id/hockeyTeam_1_BlockTextView"
-                style="@style/TeamTextView" />
-
-            <ImageView
-                android:id="@+id/hockeyBlockImageView"
-                style="@style/TeamImage"
-                android:contentDescription="@string/hockey_block_image_description"
-                android:src="@drawable/hockey_block" />
-
-            <TextView
-                android:id="@+id/hockeyTeam_2_BlockTextView"
-                style="@style/TeamTextView" />
-
-            <Button
-                android:id="@+id/hockeyTeam_2_BlockButton"
-                style="@style/TeamButton"
-                android:layout_marginEnd="8dp"
-                android:nextFocusForward="@id/hockeyTeam_2_BlockTextView" />
 
         </LinearLayout>
 
         <Button
             android:id="@+id/hockeyShowHidePlayersButton"
             style="@style/ShowPlayersAndResetButton"
-            android:text="@string/hide_players" />
+            android:text="@string/show_players" />
 
         <LinearLayout
+            android:id="@+id/hockeyPlayersLinearLayout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:baselineAligned="false"
             android:orientation="horizontal">
 
-            <LinearLayout
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:orientation="vertical">
+            <LinearLayout style="@style/PlayersLinearLayout">
 
                 <Button
                     android:id="@+id/hockeyTeam_1_Player_1_Button"
@@ -248,9 +159,7 @@
                         style="@style/PlayerPlusOneButton"
                         android:nextFocusForward="@id/hockeyTeam_1_Player_1_Record_1_TextView" />
 
-                    <LinearLayout
-                        style="@style/RecordLinearLayout"
-                        android:layout_width="0dp">
+                    <LinearLayout style="@style/RecordLinearLayout">
 
                         <TextView
                             style="@style/PlayerRecordTextView"
@@ -267,9 +176,7 @@
                         style="@style/PlayerPlusOneButton"
                         android:nextFocusForward="@id/hockeyTeam_1_Player_1_Record_2_TextView" />
 
-                    <LinearLayout
-                        style="@style/RecordLinearLayout"
-                        android:layout_width="0dp">
+                    <LinearLayout style="@style/RecordLinearLayout">
 
                         <TextView
                             style="@style/PlayerRecordTextView"
@@ -297,9 +204,7 @@
                         style="@style/PlayerPlusOneButton"
                         android:nextFocusForward="@id/hockeyTeam_1_Player_2_Record_1_TextView" />
 
-                    <LinearLayout
-                        style="@style/RecordLinearLayout"
-                        android:layout_width="0dp">
+                    <LinearLayout style="@style/RecordLinearLayout">
 
                         <TextView
                             style="@style/PlayerRecordTextView"
@@ -316,9 +221,7 @@
                         style="@style/PlayerPlusOneButton"
                         android:nextFocusForward="@id/hockeyTeam_1_Player_2_Record_2_TextView" />
 
-                    <LinearLayout
-                        style="@style/RecordLinearLayout"
-                        android:layout_width="0dp">
+                    <LinearLayout style="@style/RecordLinearLayout">
 
                         <TextView
                             style="@style/PlayerRecordTextView"
@@ -346,9 +249,7 @@
                         style="@style/PlayerPlusOneButton"
                         android:nextFocusForward="@id/hockeyTeam_1_Player_3_Record_1_TextView" />
 
-                    <LinearLayout
-                        style="@style/RecordLinearLayout"
-                        android:layout_width="0dp">
+                    <LinearLayout style="@style/RecordLinearLayout">
 
                         <TextView
                             style="@style/PlayerRecordTextView"
@@ -365,9 +266,7 @@
                         style="@style/PlayerPlusOneButton"
                         android:nextFocusForward="@id/hockeyTeam_1_Player_3_Record_2_TextView" />
 
-                    <LinearLayout
-                        style="@style/RecordLinearLayout"
-                        android:layout_width="0dp">
+                    <LinearLayout style="@style/RecordLinearLayout">
 
                         <TextView
                             style="@style/PlayerRecordTextView"
@@ -395,9 +294,7 @@
                         style="@style/PlayerPlusOneButton"
                         android:nextFocusForward="@id/hockeyTeam_1_Player_4_Record_1_TextView" />
 
-                    <LinearLayout
-                        style="@style/RecordLinearLayout"
-                        android:layout_width="0dp">
+                    <LinearLayout style="@style/RecordLinearLayout">
 
                         <TextView
                             style="@style/PlayerRecordTextView"
@@ -414,9 +311,7 @@
                         style="@style/PlayerPlusOneButton"
                         android:nextFocusForward="@id/hockeyTeam_1_Player_4_Record_2_TextView" />
 
-                    <LinearLayout
-                        style="@style/RecordLinearLayout"
-                        android:layout_width="0dp">
+                    <LinearLayout style="@style/RecordLinearLayout">
 
                         <TextView
                             style="@style/PlayerRecordTextView"
@@ -444,9 +339,7 @@
                         style="@style/PlayerPlusOneButton"
                         android:nextFocusForward="@id/hockeyTeam_1_Player_5_Record_1_TextView" />
 
-                    <LinearLayout
-                        style="@style/RecordLinearLayout"
-                        android:layout_width="0dp">
+                    <LinearLayout style="@style/RecordLinearLayout">
 
                         <TextView
                             style="@style/PlayerRecordTextView"
@@ -463,9 +356,7 @@
                         style="@style/PlayerPlusOneButton"
                         android:nextFocusForward="@id/hockeyTeam_1_Player_5_Record_2_TextView" />
 
-                    <LinearLayout
-                        style="@style/RecordLinearLayout"
-                        android:layout_width="0dp">
+                    <LinearLayout style="@style/RecordLinearLayout">
 
                         <TextView
                             style="@style/PlayerRecordTextView"
@@ -478,63 +369,10 @@
                     </LinearLayout>
                 </LinearLayout>
 
-                <Button
-                    android:id="@+id/hockeyTeam_1_Player_6_Button"
-                    style="@style/PlayerButton"
-                    android:nextFocusForward="@id/hockeyTeam_1_Player_6_LinearLayout"
-                    android:text="@string/hockey_team_1_player_6" />
-
-                <LinearLayout
-                    android:id="@+id/hockeyTeam_1_Player_6_LinearLayout"
-                    style="@style/PlayerLinearLayout">
-
-                    <Button
-                        android:id="@+id/hockeyTeam_1_Player_6_Record_1_Button"
-                        style="@style/PlayerPlusOneButton"
-                        android:nextFocusForward="@id/hockeyTeam_1_Player_6_Record_1_TextView" />
-
-                    <LinearLayout
-                        style="@style/RecordLinearLayout"
-                        android:layout_width="0dp">
-
-                        <TextView
-                            style="@style/PlayerRecordTextView"
-                            android:text="@string/hockey_player_record_1" />
-
-                        <TextView
-                            android:id="@+id/hockeyTeam_1_Player_6_Record_1_TextView"
-                            style="@style/PlayerTextView" />
-
-                    </LinearLayout>
-
-                    <Button
-                        android:id="@+id/hockeyTeam_1_Player_6_Record_2_Button"
-                        style="@style/PlayerPlusOneButton"
-                        android:nextFocusForward="@id/hockeyTeam_1_Player_6_Record_2_TextView" />
-
-                    <LinearLayout
-                        style="@style/RecordLinearLayout"
-                        android:layout_width="0dp">
-
-                        <TextView
-                            style="@style/PlayerRecordTextView"
-                            android:text="@string/hockey_player_record_2" />
-
-                        <TextView
-                            android:id="@+id/hockeyTeam_1_Player_6_Record_2_TextView"
-                            style="@style/PlayerTextView" />
-
-                    </LinearLayout>
-                </LinearLayout>
-
 
             </LinearLayout>
 
-            <LinearLayout
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:orientation="vertical">
+            <LinearLayout style="@style/PlayersLinearLayout">
 
                 <Button
                     android:id="@+id/hockeyTeam_2_Player_1_Button"
@@ -551,9 +389,7 @@
                         style="@style/PlayerPlusOneButton"
                         android:nextFocusForward="@id/hockeyTeam_2_Player_1_Record_1_TextView" />
 
-                    <LinearLayout
-                        style="@style/RecordLinearLayout"
-                        android:layout_width="0dp">
+                    <LinearLayout style="@style/RecordLinearLayout">
 
                         <TextView
                             style="@style/PlayerRecordTextView"
@@ -570,9 +406,7 @@
                         style="@style/PlayerPlusOneButton"
                         android:nextFocusForward="@id/hockeyTeam_2_Player_1_Record_2_TextView" />
 
-                    <LinearLayout
-                        style="@style/RecordLinearLayout"
-                        android:layout_width="0dp">
+                    <LinearLayout style="@style/RecordLinearLayout">
 
                         <TextView
                             style="@style/PlayerRecordTextView"
@@ -600,9 +434,7 @@
                         style="@style/PlayerPlusOneButton"
                         android:nextFocusForward="@id/hockeyTeam_2_Player_2_Record_1_TextView" />
 
-                    <LinearLayout
-                        style="@style/RecordLinearLayout"
-                        android:layout_width="0dp">
+                    <LinearLayout style="@style/RecordLinearLayout">
 
                         <TextView
                             style="@style/PlayerRecordTextView"
@@ -619,9 +451,7 @@
                         style="@style/PlayerPlusOneButton"
                         android:nextFocusForward="@id/hockeyTeam_2_Player_2_Record_2_TextView" />
 
-                    <LinearLayout
-                        style="@style/RecordLinearLayout"
-                        android:layout_width="0dp">
+                    <LinearLayout style="@style/RecordLinearLayout">
 
                         <TextView
                             style="@style/PlayerRecordTextView"
@@ -649,9 +479,7 @@
                         style="@style/PlayerPlusOneButton"
                         android:nextFocusForward="@id/hockeyTeam_2_Player_3_Record_1_TextView" />
 
-                    <LinearLayout
-                        style="@style/RecordLinearLayout"
-                        android:layout_width="0dp">
+                    <LinearLayout style="@style/RecordLinearLayout">
 
                         <TextView
                             style="@style/PlayerRecordTextView"
@@ -668,9 +496,7 @@
                         style="@style/PlayerPlusOneButton"
                         android:nextFocusForward="@id/hockeyTeam_2_Player_3_Record_2_TextView" />
 
-                    <LinearLayout
-                        style="@style/RecordLinearLayout"
-                        android:layout_width="0dp">
+                    <LinearLayout style="@style/RecordLinearLayout">
 
                         <TextView
                             style="@style/PlayerRecordTextView"
@@ -698,9 +524,7 @@
                         style="@style/PlayerPlusOneButton"
                         android:nextFocusForward="@id/hockeyTeam_2_Player_4_Record_1_TextView" />
 
-                    <LinearLayout
-                        style="@style/RecordLinearLayout"
-                        android:layout_width="0dp">
+                    <LinearLayout style="@style/RecordLinearLayout">
 
                         <TextView
                             style="@style/PlayerRecordTextView"
@@ -717,9 +541,7 @@
                         style="@style/PlayerPlusOneButton"
                         android:nextFocusForward="@id/hockeyTeam_2_Player_4_Record_2_TextView" />
 
-                    <LinearLayout
-                        style="@style/RecordLinearLayout"
-                        android:layout_width="0dp">
+                    <LinearLayout style="@style/RecordLinearLayout">
 
                         <TextView
                             style="@style/PlayerRecordTextView"
@@ -747,9 +569,7 @@
                         style="@style/PlayerPlusOneButton"
                         android:nextFocusForward="@id/hockeyTeam_2_Player_5_Record_1_TextView" />
 
-                    <LinearLayout
-                        style="@style/RecordLinearLayout"
-                        android:layout_width="0dp">
+                    <LinearLayout style="@style/RecordLinearLayout">
 
                         <TextView
                             style="@style/PlayerRecordTextView"
@@ -766,9 +586,7 @@
                         style="@style/PlayerPlusOneButton"
                         android:nextFocusForward="@id/hockeyTeam_2_Player_5_Record_2_TextView" />
 
-                    <LinearLayout
-                        style="@style/RecordLinearLayout"
-                        android:layout_width="0dp">
+                    <LinearLayout style="@style/RecordLinearLayout">
 
                         <TextView
                             style="@style/PlayerRecordTextView"
@@ -780,58 +598,7 @@
 
                     </LinearLayout>
                 </LinearLayout>
-
-                <Button
-                    android:id="@+id/hockeyTeam_2_Player_6_Button"
-                    style="@style/PlayerButton"
-                    android:nextFocusForward="@id/hockeyTeam_2_Player_6_LinearLayout"
-                    android:text="@string/hockey_team_2_player_6" />
-
-                <LinearLayout
-                    android:id="@+id/hockeyTeam_2_Player_6_LinearLayout"
-                    style="@style/PlayerLinearLayout">
-
-                    <Button
-                        android:id="@+id/hockeyTeam_2_Player_6_Record_1_Button"
-                        style="@style/PlayerPlusOneButton"
-                        android:nextFocusForward="@id/hockeyTeam_2_Player_6_Record_1_TextView" />
-
-                    <LinearLayout
-                        style="@style/RecordLinearLayout"
-                        android:layout_width="0dp">
-
-                        <TextView
-                            style="@style/PlayerRecordTextView"
-                            android:text="@string/hockey_player_record_1" />
-
-                        <TextView
-                            android:id="@+id/hockeyTeam_2_Player_6_Record_1_TextView"
-                            style="@style/PlayerTextView" />
-
-                    </LinearLayout>
-
-                    <Button
-                        android:id="@+id/hockeyTeam_2_Player_6_Record_2_Button"
-                        style="@style/PlayerPlusOneButton"
-                        android:nextFocusForward="@id/hockeyTeam_2_Player_6_Record_2_TextView" />
-
-                    <LinearLayout
-                        style="@style/RecordLinearLayout"
-                        android:layout_width="0dp">
-
-                        <TextView
-                            style="@style/PlayerRecordTextView"
-                            android:text="@string/hockey_player_record_2" />
-
-                        <TextView
-                            android:id="@+id/hockeyTeam_2_Player_6_Record_2_TextView"
-                            style="@style/PlayerTextView" />
-
-                    </LinearLayout>
-                </LinearLayout>
-
             </LinearLayout>
-
         </LinearLayout>
 
         <Button

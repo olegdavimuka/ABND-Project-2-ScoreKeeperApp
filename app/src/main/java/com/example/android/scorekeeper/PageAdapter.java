@@ -6,8 +6,8 @@ import android.support.v4.app.FragmentPagerAdapter;
 
 public class PageAdapter extends FragmentPagerAdapter {
 
-    private String tabTitles[] = new String[] {
-            "Football", "Basketball", "Volleyball", "Hockey" };
+    private String tabTitles[] = new String[]{
+            "Football", "Basketball", "Volleyball", "Hockey", "Sport News"};
 
     PageAdapter(FragmentManager fm) {
         super(fm);
@@ -21,14 +21,16 @@ public class PageAdapter extends FragmentPagerAdapter {
             return new BasketballFragment();
         } else if (position == 2) {
             return new VolleyballFragment();
-        } else {
+        } else if (position == 3) {
             return new HockeyFragment();
+        } else {
+            return new NewsFragment();
         }
     }
 
     @Override
     public int getCount() {
-        return 4;
+        return 5;
     }
 
     @Override
