@@ -8,8 +8,7 @@
         android:id="@+id/imageImageView"
         android:layout_width="@dimen/piece_of_news_image_dimensions"
         android:layout_height="@dimen/piece_of_news_image_dimensions"
-        android:layout_centerVertical="true"
-        android:src="@drawable/news_default_image" />
+        android:layout_centerVertical="true" />
 
     <LinearLayout
         android:layout_width="wrap_content"
